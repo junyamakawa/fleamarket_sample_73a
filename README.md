@@ -27,43 +27,48 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false, unique: true|
-|email|string|null: false, unique: true|
-|name-kanji|string|null: false|
-|name-katakana|string|null: false|
-|birth-of-date|integer|null: false|
-|telephone|integer|null: false|
+|email|string|null: false, unique: true, index: true|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|birth_year|date|null: false|
+|birth_month|string|null: false|
+|birth_day|string|null: false|
+|phone_number|integer|null: false, unique: true|
+|introduction|string|null: false|
 
 ### Association
 - has_many :products
-- has_many :credit-cards
+- has_many :credit_cards
 - has_many :orders
 
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null: false|
 |name|string|null: false|
+|image|text|null: false|
 |description|text|null: false|
-|category-classification|string|null: false|
-|brand-classification|string|
-|condition|string|null: false|
-|delivery-cost|integer|null: false|
-|ship-from location|string|null: false|
-|schedule-until-shipping|integer|null: false|
+|category|string|null: false|
+|brand|string|
+|condition|text|null: false|
+|delivery_cost|integer|null: false|
+|region|string|null: false|
+|preparation_day|integer|null: false|
 |price|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
-- belongs_to :order
+- has one :order
 
 ## credit-cardテーブル
 |Column|Type|Options|
 |------|----|-------|
-|card-number|integer|null: false, unique: true|
-|expiration-date|integer|null: false|
-|security-code|integer|null: false|
-|card-name|string|null: false|
+|card_number|integer|null: false, unique: true|
+|expiration_year|integer|null: false|
+|expiration_month|integer|null: false|
+|security_code|integer|null: false|
 |user_id|integer|null: false, foreign_key: true|
 
 ### Association
@@ -72,10 +77,18 @@ Things you may want to cover:
 ## orderテーブル
 |Column|Type|Options|
 |------|----|-------|
-|shipping-address|string|null: false|
+|destination_family_name|string|null: false|
+|destination_first_name|string|null: false|
+|destination_family_name_kana|string|null: false|
+|destination_first_name_kana|string|null: false|
+|post_card|integer|null: false|
+|prefecture|string|null: false|
+|dity|string|null: false|
+|house_number|string|null: false|
+|building_name|string||
 |user_id|integer|null: false, foreign_key: true|
 |product_id|integer|null: false, foreign_key: true|
 
   ### Association
   - belongs_to :user
-  - belongs_to :product
+  - has one :product
