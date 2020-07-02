@@ -1,0 +1,52 @@
+.account-page__header{
+  h2 {
+    margin-bottom: 10px;
+      letter-spacing: 3px;
+      font-size: 40px;
+      font-weight: 200;
+  }
+}
+
+.account-page__user-form{
+  .field {
+    margin-bottom: 30px;
+
+    .field-label {
+      padding: 10px 0;
+      letter-spacing: 1px;
+      font-size: 14px;
+      font-weight: 200;
+
+      i {
+        font-size: 11px;
+      }
+    }
+
+    .field-input {
+      input {
+        width: 40%;
+        padding: 10px;
+        letter-spacing: 1px;
+      }
+      
+      #user_family_name, #user_first_name, #user_family_name_kana, #user_first_name_kana{
+        width: 30%;
+      }
+      
+      #user_birth_year, #user_birth_month, #user_birth_day{
+        width: 10%;
+      }
+    }
+  }
+
+  .btn {
+      display: inline-block;
+      height: 50px;
+      padding: 0 30px;
+      line-height: 50px;
+      letter-spacing: 1px;
+      text-align: center;
+      border: none;
+      border-radius: 2px;
+  }
+}
