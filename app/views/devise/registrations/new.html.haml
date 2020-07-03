@@ -6,6 +6,7 @@
     .field
       .field-label
         = f.label :nickname, "ニックネーム"
+        %span.form-require 必須
       .field-input
         = f.text_field :nickname, autofocus: true, autocomplete: "nickname",placeholder: "フリマくん"
     .field
@@ -16,11 +17,13 @@
     .field
       .field-label
         = f.label :email, "メールアドレス"
+        %span.form-require 必須
       .field-input
         = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "xxx@fleamarket.com"
     .field
       .field-label
         = f.label :password,"パスワード"
+        %span.form-require 必須
         - if @minimum_password_length
           %em
             (#{@minimum_password_length} 文字以上の半角英数を入力してください。)
@@ -29,23 +32,27 @@
     .field
       .field-label
         = f.label :password_confirmation,"パスワード（確認用）"
+        %span.form-require 必須
       .field-input
         = f.password_field :password_confirmation, autocomplete: "new-password"
     .field
       .field-label
         = f.label :name, "お名前"
+        %span.form-require 必須
       .field-input
         = f.text_field :family_name, autofocus: true, autocomplete: "family_name",placeholder: "田中"
         = f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder: "太郎"
     .field
       .field-label
         = f.label :name_kana, "お名前（カナ）"
+        %span.form-require 必須
       .field-input
         = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana",placeholder: "タナカ"
         = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",placeholder: "タロウ"
     .field
       .field-label
         = f.label :birthday, "生年月日"
+        %span.form-require 必須
       .field-input
         = f.text_field :birth_year, autofocus: true, autocomplete: "birth_year",placeholder: "2000"
         年
@@ -57,6 +64,7 @@
     .field
       .field-label
         = f.label :phone_number, "電話番号"
+        %span.form-require 必須
       .field-input
         = f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",placeholder: "080xxxoooo"
     .actions
