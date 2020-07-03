@@ -1,15 +1,18 @@
 .account-page__header{
   h2 {
-    margin-bottom: 10px;
     letter-spacing: 3px;
-    font-size: 40px;
+    font-size: 25px;
     font-weight: 200;
+    border-bottom: 1px $light_gray solid;
+    text-align: center;
+    line-height: 3;
   }
 }
 
 .account-page__user-form{
+
   .field {
-    margin-bottom: 30px;
+    margin:15px 100px 15px 100px;
 
     .field-label {
       padding: 10px 0;
@@ -50,7 +53,7 @@
   }
 
   .btn {
-      display: inline-block;
+      display: block;
       height: 50px;
       padding: 0 30px;
       line-height: 50px;
@@ -58,5 +61,7 @@
       text-align: center;
       border: none;
       border-radius: 2px;
+      margin: 20px auto;
+      cursor: pointer;
   }
 }
