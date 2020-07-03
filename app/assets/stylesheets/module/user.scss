@@ -1,9 +1,9 @@
 .account-page__header{
   h2 {
     margin-bottom: 10px;
-      letter-spacing: 3px;
-      font-size: 40px;
-      font-weight: 200;
+    letter-spacing: 3px;
+    font-size: 40px;
+    font-weight: 200;
   }
 }
 
@@ -36,6 +36,16 @@
       #user_birth_year, #user_birth_month, #user_birth_day{
         width: 10%;
       }
+    }
+    
+    .form-require {
+      background: #ea352d;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
     }
   }
 
