@@ -28,6 +28,7 @@ Things you may want to cover:
 |------|----|-------|
 |nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true, index: true|
+|password|string|null: false|
 |family_name|string|null: false|
 |first_name|string|null: false|
 |family_name_kana|string|null: false|
@@ -35,34 +36,78 @@ Things you may want to cover:
 |birth_year|date|null: false|
 |birth_month|string|null: false|
 |birth_day|string|null: false|
-|phone_number|integer|null: false, unique: true|
-|introduction|string|null: false|
+|phone_number|string|null: false, unique: true|
+|introduction|text|null: false|
 
 ### Association
-- has_many :products
-- has_many :credit_cards
-- has_many :orders
+- has_many :products, dependent :destroy
+- has_many :credit_cards, dependent :destroy
+- has_many :orders, dependent :destroy
 
 ## productsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|image|text|null: false|
+|image_id|references|null: false, foreign_key: true|
 |description|text|null: false|
-|category|string|null: false|
+|category_id|references|null: false, foreign_key: true|
 |brand|string|
-|condition|text|null: false|
+|condition_id(active_hash)|references|null: false, foreign_key: true|
 |delivery_cost|integer|null: false|
-|region|string|null: false|
-|preparation_day|integer|null: false|
+|region_id(active_hash)|references|null: false, foreign_key: true|
+|preparation_day_id(active_hash)|references|null: false, foreign_key: true|
 |price|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
 - has one :order
+- has_many :images, dependent :destroy
+- has_many :categories, dependent :destroy
+- belongs_to_active_hash :condition
+- belongs_to_active_hash :preparation_day
+- belongs_to_active_hash :region
 
-## credit-cardテーブル
+## Imagesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|references|null: false, foreign_key: true|
+|url|string|null: false|
+
+### Association
+- belongs_to :product
+
+## Categoriesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|product_id|references|null: false, foreign_key: true|
+|category_name|string|null: false|
+
+### Association
+- belongs_to :product
+
+## Conditionsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|condition|string|null: false|
+
+### Association
+
+##  Preparation_daysテーブル
+|Column|Type|Options|
+|------|----|-------|
+|preparation_day|integer|null: false|
+
+### Association
+
+##  Regionsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|region|string|null: false|
+
+### Association
+
+## credit_cardテーブル
 |Column|Type|Options|
 |------|----|-------|
 |card_number|integer|null: false, unique: true|
@@ -83,11 +128,11 @@ Things you may want to cover:
 |destination_first_name_kana|string|null: false|
 |post_card|integer|null: false|
 |prefecture|string|null: false|
-|dity|string|null: false|
+|city|string|null: false|
 |house_number|string|null: false|
 |building_name|string||
-|user_id|integer|null: false, foreign_key: true|
-|product_id|integer|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
+|product_id|references|null: false, foreign_key: true|
 
   ### Association
   - belongs_to :user
