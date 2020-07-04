@@ -1,9 +1,10 @@
 .account-page__header{
+  border-bottom: 1px $light_gray solid;
+
   h2 {
     letter-spacing: 3px;
     font-size: 25px;
     font-weight: 200;
-    border-bottom: 1px $light_gray solid;
     text-align: center;
     line-height: 3;
   }
