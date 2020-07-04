@@ -19,9 +19,9 @@
       .main__FirstVisual__subtitle 人生を変えるフリマアプリ
       .main__FirstVisual__text FURIMAはだれでもかんたんに出品・購入できる<br>フリマアプリです
       .main__FirstVisual__button
-        =link_to "/"
+        =link_to "/" do
           = image_tag asset_path("google-play-badge.png"), alt: 'app store', class: 'main__FirstVisual__button__store'
-        =link_to "/"
+        =link_to "/" do
           = image_tag asset_path("google-play-badge.png"), alt: 'google play', class: 'main__FirstVisual__button__store'
     %section.main__FurimaIntro
       .main__FurimaIntro__subtitle FURIMAが選ばれる3つの理由
@@ -52,9 +52,9 @@
         .main__MiddleVisual__subtitle 会員数日本一位
         .main__MiddleVisual__text FURIMAは、フリマアプリで最も人気。<br>出品・購入回数も業界最多です！<br>ほしかったあの商品に出会えるかもしれません。
         .main__MiddleVisual__button
-          =link_to "/"
+          =link_to "/" do
             = image_tag asset_path("google-play-badge.png"), alt: 'app store', class: 'main__FirstVisual__button__store'
-          =link_to "/"
+          =link_to "/" do
             = image_tag asset_path("google-play-badge.png"), alt: 'google play', class: 'main__FirstVisual__button__store'
   %html
     .features
