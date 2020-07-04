@@ -11,58 +11,61 @@
 }
 
 .account-page__user-form{
+  .new_user{
+    width: 800px;
+    margin: 0 auto;
+    .field {
+      margin:15px 100px 15px 100px;
 
-  .field {
-    margin:15px 100px 15px 100px;
-
-    .field-label {
-      padding: 10px 0;
-      letter-spacing: 1px;
-      font-size: 14px;
-      font-weight: 200;
-
-      i {
-        font-size: 11px;
-      }
-    }
-
-    .field-input {
-      input {
-        width: 40%;
-        padding: 10px;
+      .field-label {
+        padding: 10px 0;
         letter-spacing: 1px;
-      }
-      
-      #user_family_name, #user_first_name, #user_family_name_kana, #user_first_name_kana{
-        width: 30%;
-      }
-      
-      #user_birth_year, #user_birth_month, #user_birth_day{
-        width: 10%;
-      }
-    }
-    
-    .form-require {
-      background: #ea352d;
-      margin: 0 0 0 8px;
-      padding: 2px 4px;
-      border-radius: 2px;
-      color: #fff;
-      font-size: 12px;
-      vertical-align: top;
-    }
-  }
+        font-size: 14px;
+        font-weight: 200;
 
-  .btn {
-      display: block;
-      height: 50px;
-      padding: 0 30px;
-      line-height: 50px;
-      letter-spacing: 1px;
-      text-align: center;
-      border: none;
-      border-radius: 2px;
-      margin: 20px auto;
-      cursor: pointer;
+        i {
+          font-size: 11px;
+        }
+      }
+
+      .field-input {
+        input {
+          width: 40%;
+          padding: 10px;
+          letter-spacing: 1px;
+        }
+        
+        #user_family_name, #user_first_name, #user_family_name_kana, #user_first_name_kana{
+          width: 30%;
+        }
+        
+        #user_birth_year, #user_birth_month, #user_birth_day{
+          width: 10%;
+        }
+      }
+      
+      .form-require {
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+    }
+
+    .btn {
+        display: block;
+        height: 50px;
+        padding: 0 30px;
+        line-height: 50px;
+        letter-spacing: 1px;
+        text-align: center;
+        border: none;
+        border-radius: 2px;
+        margin: 20px auto;
+        cursor: pointer;
+    }
   }
 }
