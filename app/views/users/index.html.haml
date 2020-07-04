@@ -232,11 +232,11 @@
           %li=link_to "お知らせ"
     .footer__logo
       = link_to "/" do 
-        = image_tag "/assets/logo-white.png"
+        = image_tag asset_path("/assets/logo-white.png")
     %p
       © FURIMA
   = link_to "#" do
     .exhibit-btn
       %span.exhibit-btn__text
         出品する
-      = image_tag "/assets/icon_camera.png", class:"exhibit-btn__icon"
+      = image_tag asset_path("icon_camera.png"), class:"exhibit-btn__icon"
