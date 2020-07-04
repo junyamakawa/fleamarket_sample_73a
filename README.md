@@ -43,6 +43,7 @@ Things you may want to cover:
 - has_many :products, dependent :destroy
 - has_many :credit_cards, dependent :destroy
 - has_many :orders, dependent :destroy
+- has_many :destinations, dependent :destroy
 
 ## productsテーブル
 |Column|Type|Options|
@@ -60,7 +61,7 @@ Things you may want to cover:
 
 ### Association
 - belongs_to :user
-- has one :order
+- has_one :order
 - has_many :images, dependent :destroy
 - belongs_to :category
 - belongs_to_active_hash :condition
@@ -120,18 +121,29 @@ Things you may want to cover:
 ## orderテーブル
 |Column|Type|Options|
 |------|----|-------|
-|destination_family_name|string|null: false|
-|destination_first_name|string|null: false|
-|destination_family_name_kana|string|null: false|
-|destination_first_name_kana|string|null: false|
-|post_card|integer|null: false|
-|prefecture|string|null: false|
-|city|string|null: false|
-|house_number|string|null: false|
-|building_name|string||
+|destination_id|references|null: false, foreign_key: true|
 |user_id|references|null: false, foreign_key: true|
 |product_id|references|null: false, foreign_key: true|
 
   ### Association
   - belongs_to :user
-  - has one :product
+  - has_one :product
+  - has_one :destination
+
+## destinationテーブル
+|Column|Type|Options|
+|------|----|-------|
+|family_name|string|null: false|
+|first_name|string|null: false|
+|family_name_kana|string|null: false|
+|first_name_kana|string|null: false|
+|post_code|integer|null: false|
+|prefecture|string|null: false|
+|city|string|null: false|
+|house_number|string|null: false|
+|building_name|string||
+
+  ### Association
+  - belongs_to :user
+  - has_one :order
+
