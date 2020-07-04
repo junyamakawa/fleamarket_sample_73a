@@ -1,7 +1,8 @@
 .wrapper
   .header
     .header__main
-      =link_to image_tag asset_path("logo.png"), alt: 'FURIMA logo', class: 'header__main__Logo'), "/"
+      =link_to  "/" do
+        = image_tag "logo.png", alt: 'FURIMA logo', class: 'header__main__Logo'
       =form_with(url: "/",local: true, method: :get, class: "header__main__form") do |form|
         =form.text_field :keyword, placeholder: "キーワードから検索する", class: "header__main__form__SearchInput"
         =button_tag type: 'submit',class: "header__main__form__SearchButton" do
