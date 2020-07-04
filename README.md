@@ -48,7 +48,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|image_id|references|null: false, foreign_key: true|
 |description|text|null: false|
 |category_id|references|null: false, foreign_key: true|
 |brand|string|
@@ -63,7 +62,7 @@ Things you may want to cover:
 - belongs_to :user
 - has one :order
 - has_many :images, dependent :destroy
-- has_many :categories, dependent :destroy
+- belongs_to :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :preparation_day
 - belongs_to_active_hash :region
@@ -80,11 +79,10 @@ Things you may want to cover:
 ## Categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|product_id|references|null: false, foreign_key: true|
 |category_name|string|null: false|
 
 ### Association
-- belongs_to :product
+- has_many :products
 
 ## Conditionsテーブル
 |Column|Type|Options|
