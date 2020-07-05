@@ -96,6 +96,9 @@
         width: 160px;
         height: 75px;
       }
+      &__sotore:first-child {
+        margin-right: 10px;
+      }
     }
   }
   &__FurimaIntro {
@@ -191,6 +194,9 @@
       &__store {
         width: 160px;
         height: 75px;
+      }
+      &__sotore:first-child {
+        margin-right: 10px;
       }
     }
   }
