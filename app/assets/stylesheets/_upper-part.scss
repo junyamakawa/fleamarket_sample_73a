@@ -2,58 +2,84 @@
   box-sizing: border-box;
 }
 
+.wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
 .header {
   height: 10vh;
   width: 100%;
-  &__main {
-  height: 60%;
-  display: flex;
-    &__Logo {
-      margin: 5px 20px;
-      height: 30px;
-      width: 100px;
-    }
-    &__form {
-      height: 100%;
-      width: 100%;
-      padding-top: 10px;
-      &__SearchInput {
-        width: 70%;
-        height: 20px;
-      }
-      &__SearchButton {
-        height: 20px;
-        margin-left: -5px;
-        background-color: skyblue;
-        color: white;
-        border: none;
-      }
-    }
-  }
-  &__navi {
-    display: flex;
-    font-size: 14px;
-    padding-top: 3px;
-    &__left {
-      justify-content: space-around;
+  padding: 0 60px;
+  margin-bottom: 10px;
+  &__innar {
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    &__main {
+      padding-left: 10%;
       display: flex;
-      width: 30%;
-      padding-left: 30px;
-      
-    }
-    &__right {
-      justify-content: flex-end;
-      width: 70%;
-      display: flex;
-      padding-right: 30px;
-      &__login {
+      position: relative;
+      align-items: center;
+      margin-bottom: -20px;
+      &__Logo {
+        height: 30px;
+        width: 100px;
+        margin-bottom: 10px;
         margin-right: 30px;
-        text-decoration: none;
-        color: black;
+        border-radius: 4px;
       }
-      &__new {
-        text-decoration: none;
-        color: black;
+      &__form {
+        position: relative;
+        margin-top: -15px;
+        height: 100%;
+        width: 100%;
+        &__SearchInput {
+          width: 70%;
+          height: 20px;
+        }
+        &__SearchButton {
+          position: absolute;
+          top: 2px;
+          height: 20px;
+          margin-left: -5px;
+          background-color: skyblue;
+          color: white;
+          border: none;
+        }
+      }
+    }
+    &__navi {
+      display: flex;
+      font-size: 14px;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 40px;
+      &__left {
+        display: flex;
+        width: 50%;
+        &__category {
+          margin-right: 20px;
+        }
+      }
+      &__right {
+        justify-content: flex-end;
+        width: 70%;
+        display: flex;
+        padding-right: 30px;
+        &__login {
+          margin-right: 30px;
+          text-decoration: none;
+          color: black;
+        }
+        &__new {
+          text-decoration: none;
+          color: black;
+        }
       }
     }
   }
@@ -64,7 +90,7 @@
   &__FirstVisual {
     width: 100%;
     height: 560px;
-    background-image: url(/assets/bg-mainVisual-pict_pc.jpg);
+    background-image: image-url('/assets/bg-mainVisual-pict_pc.jpg');
     background-size: cover;
     background-repeat: none;
     background-position: top center;
@@ -166,13 +192,14 @@
   &__MiddleVisual {
     width: 100%;
     height: 400px;
-    background-image: url(/assets/bg-topMiddleDl-pict.jpg);
+    background-image: image-url('/assets/bg-topMiddleDl-pict.jpg');
     background-size: cover;
     background-repeat: none;
     background-position: bottom right;
     align-items: center;
-    padding-top: 15%;
+    padding-top: 100px;
     padding-left: 30px;
+    margin-top: 20px;
     &__subtitle {
       font-size: 27px;
       font-weight: bold;
