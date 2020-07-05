@@ -7,59 +7,59 @@
   width: 100%;
   padding: 0 60px;
   margin-bottom: 10px;
-    &__innar {
-  &__main {
-  height: 60%;
-  display: flex;
-    &__Logo {
-      margin: 5px 20px;
-      height: 30px;
-      width: 100px;
-    }
-    &__form {
-      height: 100%;
-      width: 100%;
-      padding-top: 10px;
-      &__SearchInput {
-        width: 70%;
-        height: 20px;
-      }
-      &__SearchButton {
-        height: 20px;
-        margin-left: -5px;
-        background-color: skyblue;
-        color: white;
-        border: none;
-      }
-    }
-  }
-  &__navi {
+  &__innar {
+    &__main {
+    height: 60%;
     display: flex;
-    font-size: 14px;
-    padding-top: 3px;
-    &__left {
-      justify-content: space-around;
-      display: flex;
-      width: 30%;
-      padding-left: 30px;
-      
-    }
-    &__right {
-      justify-content: flex-end;
-      width: 70%;
-      display: flex;
-      padding-right: 30px;
-      &__login {
-        margin-right: 30px;
-        text-decoration: none;
-        color: black;
+      &__Logo {
+        margin: 5px 20px;
+        height: 30px;
+        width: 100px;
       }
-      &__new {
-        text-decoration: none;
-        color: black;
+      &__form {
+        height: 100%;
+        width: 100%;
+        padding-top: 10px;
+        &__SearchInput {
+          width: 70%;
+          height: 20px;
+        }
+        &__SearchButton {
+          height: 20px;
+          margin-left: -5px;
+          background-color: skyblue;
+          color: white;
+          border: none;
+        }
       }
     }
-  }
+    &__navi {
+      display: flex;
+      font-size: 14px;
+      padding-top: 3px;
+      &__left {
+        justify-content: space-around;
+        display: flex;
+        width: 30%;
+        padding-left: 30px;
+        
+      }
+      &__right {
+        justify-content: flex-end;
+        width: 70%;
+        display: flex;
+        padding-right: 30px;
+        &__login {
+          margin-right: 30px;
+          text-decoration: none;
+          color: black;
+        }
+        &__new {
+          text-decoration: none;
+          color: black;
+        }
+      }
+    }
   }
 }
 .main {
