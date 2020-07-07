@@ -1,19 +1,3 @@
-.header
-  .header__innar
-    .header__innar__main
-      =link_to  "root_path" do
-        = image_tag asset_path("logo.png"), alt: 'FURIMA logo', class: 'header__innar__main__Logo'
-      =form_with(url: "/",local: true, method: :get, class: "header__innar__main__form") do |form|
-        =form.text_field :keyword, placeholder: "キーワードから検索する", class: "header__innar__main__form__SearchInput"
-        =button_tag type: 'submit',class: "header__innar__main__form__SearchButton" do
-          %i.fas.fa-search
-    .header__innar__navi
-      .header__innar__navi__left
-        .header__innar__navi__left__category カテゴリー
-        .header__innar__navi__left__brand ブランド
-      .header__innar__navi__right
-        =link_to "ログイン", "/",class:"header__innar__navi__right__login"
-        =link_to "新規会員登録", "/", class: "header__innar__navi__right__new" 
 .main
   %section.main__FirstVisual
     .main__FirstVisual__subtitle 人生を変えるフリマアプリ
@@ -211,36 +195,3 @@
         = image_tag "app-store.svg", class: "appstore-icon"
       = link_to "#" do
         = image_tag "google-play.svg", class: "googleplay-icon"
-.footer
-  %ul.footer__contents
-    %li.footer__contents__content
-      .footer__contents__content__head
-        FURIMAについて
-      %ul
-        %li=link_to "会社概要（運営会社）"
-        %li=link_to "プライバシーポリシー"
-        %li=link_to "FURIMA利用規約"
-        %li=link_to "ポイントに関する特約"
-    %li.footer__contents__content
-      .footer__contents__content__head
-        FURIMAを見る
-      %ul
-        %li=link_to "カテゴリ一覧"
-        %li=link_to "プライバシーポリシー"
-    %li.footer__contents__content
-      .footer__contents__content__head
-        ヘルプ&ガイド
-      %ul
-        %li=link_to "FURIMAガイド"
-        %li=link_to "FURIMAロゴ利用ガイドライン"
-        %li=link_to "お知らせ"
-  .footer__logo
-    = link_to "/" do 
-      = image_tag asset_path("logo-white.png"), class:"footer__logo__icon"
-  %p
-    © FURIMA
-= link_to "#" do
-  .exhibit-btn
-    %span.exhibit-btn__text
-      出品する
-    = image_tag asset_path("icon_camera.png"), class:"exhibit-btn__icon"
