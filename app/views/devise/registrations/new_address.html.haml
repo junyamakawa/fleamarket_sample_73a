@@ -1,8 +1,8 @@
-account-page__header
+.account-page__header
   %h2 住所情報の登録
-.account-page__user-form
-  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|  
-    = render "devise/shared/error_messages", resource: resource
+.account-page__address-form
+  = form_for(@address) do |f|  
+    = render "devise/shared/error_messages", resource: @address
     .field
       .field-label
         = f.label :name, "お名前"
@@ -22,7 +22,7 @@ account-page__header
         = f.label :post_code, "郵便番号"
         %span.form-require 必須
       .field-input
-        = f.text_field :post_code, autofocus: true, autocomplete: "post_code",placeholder: "oooxxxx"
+        = f.text_field :post_code, autofocus: true, autocomplete: "post_code",placeholder: "0001111"
     .field
       .field-label
         = f.label :address, "住所"
@@ -34,7 +34,7 @@ account-page__header
         %br
         = f.text_field :house_number, autofocus: true, autocomplete: "house_number",placeholder: "番地"
         %br
-        = f.text_field :house_number, autofocus: true, autocomplete: "house_number",placeholder: "建物名・部屋番号"
+        = f.text_field :building_name, autofocus: true, autocomplete: "building_name",placeholder: "建物名・部屋番号"
     .field
       .field-label
         = f.label :phone_number, "電話番号"
