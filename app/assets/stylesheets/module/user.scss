@@ -70,3 +70,59 @@
     }
   }
 }
+
+.account-page__address-form{
+  .new_address{
+    width: 80%;
+    margin: 0 auto;
+    .field {
+      margin:15px 100px 15px 100px;
+
+      .field-label {
+        padding: 10px 0;
+        letter-spacing: 1px;
+        font-size: 14px;
+        font-weight: 200;
+
+        i {
+          font-size: 11px;
+        }
+      }
+
+      .field-input {
+        input {
+          width: 40%;
+          padding: 10px;
+          letter-spacing: 1px;
+        }
+        
+        #address_prefecture, #address_city, #address_house_number, #address_building_name{
+          width: 60%;
+        }
+      }
+      
+      .form-require {
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+    }
+
+    .btn {
+        display: block;
+        height: 50px;
+        padding: 0 30px;
+        line-height: 50px;
+        letter-spacing: 1px;
+        text-align: center;
+        border: none;
+        border-radius: 2px;
+        margin: 20px auto;
+        cursor: pointer;
+    }
+  }
+}
