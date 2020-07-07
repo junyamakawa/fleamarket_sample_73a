@@ -12,14 +12,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     @user = User.new(sign_up_params)
-      unless @user.valid?
-        flash.now[:alert] = @user.errors.full_messages
-        render :new and return
-      end
-      session["devise.regist_data"] = {user: @user.attributes}
-      session["devise.regist_data"][:user]["password"] = params[:user][:password]
-      @address = @user.build_address
-      render :new_address
+    unless @user.valid?
+      flash.now[:alert] = @user.errors.full_messages
+      render :new and return
+    end
+    session["devise.regist_data"] = {user: @user.attributes}
+    session["devise.regist_data"][:user]["password"] = params[:user][:password]
+    @address = @user.build_address
+    render :new_address
   end
 
   def create_address
@@ -62,7 +62,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def address_params
-    params.require(:address).permit(:zipcode, :address)
+    params.require(:address).permit(:post_code, :family_name, :first_name, :family_name_kana, :first_name_kana, :post_code, :prefecture, :city, :house_number, :building_name, :phone_number)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
