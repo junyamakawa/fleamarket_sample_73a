@@ -15,7 +15,7 @@
     width: 80%;
     margin: 0 auto;
     .field {
-      margin:15px 100px 15px 100px;
+      margin:25px 100px 25px 100px;
 
       .field-label {
         padding: 10px 0;
@@ -58,15 +58,18 @@
 
     .btn {
         display: block;
-        height: 50px;
+        width: 40%;
+        height: 60px;
         padding: 0 30px;
-        line-height: 50px;
+        line-height: 60px;
         letter-spacing: 1px;
         text-align: center;
         border: none;
         border-radius: 2px;
-        margin: 20px auto;
+        margin: 30px auto;
         cursor: pointer;
+        background-color: $light_blue;
+        color: $white;
     }
   }
 }
@@ -76,7 +79,7 @@
     width: 80%;
     margin: 0 auto;
     .field {
-      margin:15px 100px 15px 100px;
+      margin:25px 100px 25px 100px;
 
       .field-label {
         padding: 10px 0;
@@ -114,15 +117,18 @@
 
     .btn {
         display: block;
-        height: 50px;
+        width: 40%;
+        height: 60px;
         padding: 0 30px;
-        line-height: 50px;
+        line-height: 60px;
         letter-spacing: 1px;
         text-align: center;
         border: none;
         border-radius: 2px;
-        margin: 20px auto;
+        margin: 30px auto;
         cursor: pointer;
+        background-color: $light_blue;
+        color: $white;
     }
   }
 }
