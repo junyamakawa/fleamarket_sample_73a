@@ -7,6 +7,8 @@
       .field-label
         = f.label :name, "お名前"
         %span.form-require 必須
+        %em
+          (全角で入力してください。)
       .field-input
         = f.text_field :family_name, autofocus: true, autocomplete: "family_name",placeholder: "田中"
         = f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder: "太郎"
@@ -14,6 +16,8 @@
       .field-label
         = f.label :name_kana, "お名前（カナ）"
         %span.form-require 必須
+        %em
+          (全角カナで入力してください。)
       .field-input
         = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana",placeholder: "タナカ"
         = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",placeholder: "タロウ"
