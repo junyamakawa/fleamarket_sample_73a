@@ -1,4 +1,5 @@
 .account-page__header{
+  border-top: 1px $light_gray solid;
   border-bottom: 1px $light_gray solid;
 
   h2 {
@@ -131,4 +132,9 @@
         color: $white;
     }
   }
+}
+
+.account-page__content{
+  width: 80%;
+  margin: 30px auto;
 }
