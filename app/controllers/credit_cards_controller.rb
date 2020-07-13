@@ -35,6 +35,9 @@ class CreditCardsController < ApplicationController
       @customer_card = customer.cards.retrieve(@card.card_id)
 
       @exp_month = @customer_card.exp_month.to_s
+
+      @exp_year = @customer_card.exp_year.to_s.slice(2,3)
+    end
   end
 
   
