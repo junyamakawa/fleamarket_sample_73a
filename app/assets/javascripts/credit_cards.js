@@ -16,7 +16,7 @@ window.addEventListener('DOMContentLoaded', function(){
     };
 
     Payjp.createToken(card, function(status, response) { 
- 
+      if (status === 200) { 
     });
   });
 });
