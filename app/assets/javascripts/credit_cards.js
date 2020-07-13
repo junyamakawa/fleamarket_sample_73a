@@ -15,5 +15,8 @@ window.addEventListener('DOMContentLoaded', function(){
         exp_year: document.getElementById("payment_card_year").value
     };
 
+    Payjp.createToken(card, function(status, response) { 
+ 
+    });
   });
 });
