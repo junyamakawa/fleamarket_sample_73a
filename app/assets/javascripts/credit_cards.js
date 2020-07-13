@@ -17,6 +17,11 @@ window.addEventListener('DOMContentLoaded', function(){
 
     Payjp.createToken(card, function(status, response) { 
       if (status === 200) { 
+        $(".number").removeAttr("name");
+        $(".cvc").removeAttr("name");
+        $(".exp_month").removeAttr("name");
+        $(".exp_year").removeAttr("name"); 
+
     });
   });
 });
