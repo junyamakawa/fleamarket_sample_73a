@@ -27,6 +27,9 @@ class CreditCardsController < ApplicationController
     @card = CreditCard.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to action: "new" 
+    else
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+
   end
 
   
