@@ -33,6 +33,8 @@ class CreditCardsController < ApplicationController
       customer = Payjp::Customer.retrieve(@card.customer_id)
 
       @customer_card = customer.cards.retrieve(@card.card_id)
+
+      @exp_month = @customer_card.exp_month.to_s
   end
 
   
