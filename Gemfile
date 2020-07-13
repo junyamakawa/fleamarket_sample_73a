@@ -77,5 +77,6 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 
+gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
