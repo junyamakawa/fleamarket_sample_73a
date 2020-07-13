@@ -24,7 +24,7 @@ class CreditCardsController < ApplicationController
   end
 
   def show
-    
+    @card = CreditCard.find_by(user_id: current_user.id)
   end
 
   
