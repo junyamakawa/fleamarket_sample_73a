@@ -23,8 +23,9 @@ window.addEventListener('DOMContentLoaded', function(){
         $(".exp_year").removeAttr("name"); 
         $("#charge-form").append(
           $('<input type="hidden" name="payjp_token">').val(response.id)
-        );
-      }
+        ); 
+        document.inputForm.submit();
+        alert("登録が完了しました"); 
     });
   });
 });
