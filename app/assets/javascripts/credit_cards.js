@@ -21,7 +21,10 @@ window.addEventListener('DOMContentLoaded', function(){
         $(".cvc").removeAttr("name");
         $(".exp_month").removeAttr("name");
         $(".exp_year").removeAttr("name"); 
-
+        $("#charge-form").append(
+          $('<input type="hidden" name="payjp_token">').val(response.id)
+        );
+      }
     });
   });
 });
