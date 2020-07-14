@@ -49,7 +49,7 @@ class CreditCardsController < ApplicationController
 
       customer = Payjp::Customer.retrieve(@card.customer_id)
 
-          
+      customer.delete
   end
   
 end
