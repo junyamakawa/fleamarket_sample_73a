@@ -4,19 +4,17 @@
 
 
 
-.main {
+.productMain {
   background-color: #f8f8f8;
   height: 100%;
   width: 100%;
   .showMain {
-    // height: 100%;
-    // width: 100%;
     padding: 40px;
     margin: 0 auto;
     .itemBox {
       height: 1227px;
       width: 700px;
-      background-color: #ffffff;
+      background-color:$white;
       padding: 24px 40px 40px;
       margin: 0 auto;
       .itemBox__name {
@@ -77,11 +75,11 @@
         }
         .category {
           text-decoration: none; 
-          color: #3CCACE;
+          color: $thema_color_blue;
           cursor: pointer;
         }
         .region {
-          color: #3CCACE;
+          color: $thema_color_blue;
           text-decoration: none;
           cursor: pointer;
         }       
@@ -93,7 +91,7 @@
           float: left;
           padding: 6px 10px;
           border-radius: 40px;
-          color: #3CCACE;
+          color: $thema_color_blue;
           border: 1px solid #ffb340;
         }
         .optionalBtn {
@@ -110,7 +108,7 @@
       width: 700px;
       height: 304px;
       margin: 10px auto 0;
-      background-color: white;
+      background-color: $white;
       .notice {
         background-color: #F8F8F8;
         margin: 10px 0;
@@ -118,10 +116,10 @@
         font-size: 14px;
       }
       .commentBtn {
-        background-color: #3CCACE;
+        background-color: $thema_color_blue;
         line-height: 48px;
-        border: 1px solid #3CCACE;
-        color: #fff;
+        border: 1px solid $thema_color_blue;
+        color: $white;
         width: 60%;
         font-size: 18px;
         border-radius: 100px;
@@ -136,11 +134,11 @@
       display: flex;
       background-color: #f8f8f8;
       justify-content: space-between;
-      color: #3CCACE;
+      color: $thema_color_blue;
       cursor: pointer;
       .goToLink{
         text-decoration: none;
-        color: #3CCACE;
+        color:$thema_color_blue;
       }
     }
     .relatedItems {
@@ -150,7 +148,7 @@
       margin: 24px  auto 0;
       .seeMore {
         display: block;
-        color: #3CCACE;
+        color: $thema_color_blue;
         margin-bottom: 8px;
         font-weight: bold;
         font-size: 22px;
@@ -162,7 +160,7 @@
         height: 245px;
         margin-top: 32px;
         .productList {
-          background-color: white;
+          background-color: $white;
           height: 100%;
           width: calc(100% / 3);
           .productLink {
@@ -187,7 +185,7 @@
               }
             }
             .productList__body {
-              background-color: white;
+              background-color: $white;
               color: #333;
               padding: 16px;
               &__name {
