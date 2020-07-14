@@ -41,6 +41,16 @@ class CreditCardsController < ApplicationController
   end
 
   def destroy
+    @card = CreditCard.find_by(user_id: current_user.id)
+    if @card.blank?
+      redirect_to action: "new" 
+    else
+      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+
+      @customer_card = customer.cards.retrieve(@card.card_id)
+    
   end
   
 end
