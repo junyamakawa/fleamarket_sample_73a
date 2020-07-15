@@ -52,6 +52,8 @@ class CreditCardsController < ApplicationController
       customer.delete
 
       @card.delete
+
+    end
   end
   
 end
