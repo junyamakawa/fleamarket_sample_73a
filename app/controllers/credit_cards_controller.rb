@@ -55,5 +55,8 @@ class CreditCardsController < ApplicationController
 
     end
   end
+
+  def buy
+  end
   
 end
