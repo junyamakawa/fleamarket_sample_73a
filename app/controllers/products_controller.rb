@@ -4,7 +4,6 @@ class ProductsController < ApplicationController
   end
 
   def new
-    render "products/sell"
   end
   
 end
