@@ -70,5 +70,8 @@ class CreditCardsController < ApplicationController
       end
     end
   end
+
+  def pay
+  end
   
 end
