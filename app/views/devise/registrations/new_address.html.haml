@@ -1,0 +1,48 @@
+.account-page__header
+  %h2 住所情報の登録
+.account-page__address-form
+  = form_for(@address) do |f|  
+    = render "devise/shared/error_messages", resource: @address
+    .field
+      .field-label
+        = f.label :name, "お名前"
+        %span.form-require 必須
+        %em
+          (全角で入力してください。)
+      .field-input
+        = f.text_field :family_name, autofocus: true, autocomplete: "family_name",placeholder: "田中"
+        = f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder: "太郎"
+    .field
+      .field-label
+        = f.label :name_kana, "お名前（カナ）"
+        %span.form-require 必須
+        %em
+          (全角カナで入力してください。)
+      .field-input
+        = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana",placeholder: "タナカ"
+        = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",placeholder: "タロウ"
+    .field
+      .field-label
+        = f.label :post_code, "郵便番号"
+        %span.form-require 必須
+      .field-input
+        = f.text_field :post_code, autofocus: true, autocomplete: "post_code",placeholder: "0001111"
+    .field
+      .field-label
+        = f.label :address, "住所"
+        %span.form-require 必須
+      .field-input
+        = f.text_field :prefecture, autofocus: true, autocomplete: "prefecture",placeholder: "都道府県"
+        %br
+        = f.text_field :city, autofocus: true, autocomplete: "city",placeholder: "市区町村"
+        %br
+        = f.text_field :house_number, autofocus: true, autocomplete: "house_number",placeholder: "番地"
+        %br
+        = f.text_field :building_name, autofocus: true, autocomplete: "building_name",placeholder: "建物名・部屋番号"
+    .field
+      .field-label
+        = f.label :phone_number, "電話番号"
+      .field-input
+        = f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",placeholder: "080xxxoooo"
+    .actions
+      = f.submit "登録する", class: 'btn'

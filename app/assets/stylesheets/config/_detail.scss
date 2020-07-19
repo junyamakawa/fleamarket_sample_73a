@@ -1,0 +1,22 @@
+@mixin detail {
+  height: 19px;
+  width: 620px;
+  display: flex;
+  &__title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4em;
+  }
+  &__required-logo {
+    background-color: #ff0211;
+    color: #fff;
+    border-radius: 2px;
+    display: inline-block;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.4em;
+    margin: 0 0 0 8px;
+    padding: 0 4px;
+    font-size: 12px;
+  }
+}
