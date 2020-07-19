@@ -78,6 +78,7 @@ class CreditCardsController < ApplicationController
     @product.with_lock do
       if current_user.credit_card.present?
         @card = CreditCard.find_by(user_id: current_user.id)
+        Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
 
 
   end
