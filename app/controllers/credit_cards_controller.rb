@@ -82,7 +82,7 @@ class CreditCardsController < ApplicationController
         charge = Payjp::Charge.create(
           amount: @product.price,
           customer: Payjp::Customer.retrieve(@card.customer_id),
-
+          currency: 'jpy'
         )
 
   end
