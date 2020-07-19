@@ -72,6 +72,11 @@ class CreditCardsController < ApplicationController
   end
 
   def pay
+    @product = Product.find(params[:product_id])
+    @images = @product.images.all
+      
+    @product.with_lock do
+
   end
   
 end
