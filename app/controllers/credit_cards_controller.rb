@@ -62,7 +62,9 @@ class CreditCardsController < ApplicationController
     
     if user_signed_in?
       @user = current_user
- 
+      if @user.credit_card.present?
+        Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+
 
     end
   end
