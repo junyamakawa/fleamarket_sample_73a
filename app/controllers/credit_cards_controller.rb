@@ -76,6 +76,9 @@ class CreditCardsController < ApplicationController
     @images = @product.images.all
       
     @product.with_lock do
+      if current_user.credit_card.present?
+        @card = CreditCard.find_by(user_id: current_user.id)
+
 
   end
   
