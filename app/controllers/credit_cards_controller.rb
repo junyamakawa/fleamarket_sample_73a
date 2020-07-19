@@ -80,7 +80,7 @@ class CreditCardsController < ApplicationController
         @card = CreditCard.find_by(user_id: current_user.id)
         Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
         charge = Payjp::Charge.create(
-          
+          amount: @product.price,
         )
 
   end
