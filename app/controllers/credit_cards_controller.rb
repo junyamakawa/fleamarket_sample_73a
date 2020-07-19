@@ -57,6 +57,9 @@ class CreditCardsController < ApplicationController
   end
 
   def buy
+    @product = Product.find(params[:product.id])
+    @images = @product.images.all
+
   end
   
 end
