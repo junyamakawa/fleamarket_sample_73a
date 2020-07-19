@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_12_045621) do
+ActiveRecord::Schema.define(version: 2020_07_18_131028) do
 
   create_table "credit_cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -19,6 +19,22 @@ ActiveRecord::Schema.define(version: 2020_07_12_045621) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_credit_cards_on_user_id"
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description", null: false
+    t.integer "category", null: false
+    t.string "brand"
+    t.integer "condition", null: false
+    t.integer "delivery_cost", null: false
+    t.integer "region", null: false
+    t.integer "preparation_day", null: false
+    t.integer "price", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -43,4 +59,5 @@ ActiveRecord::Schema.define(version: 2020_07_12_045621) do
   end
 
   add_foreign_key "credit_cards", "users"
+  add_foreign_key "products", "users"
 end
