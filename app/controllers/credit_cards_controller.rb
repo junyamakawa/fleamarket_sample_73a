@@ -81,6 +81,8 @@ class CreditCardsController < ApplicationController
         Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
         charge = Payjp::Charge.create(
           amount: @product.price,
+          customer: Payjp::Customer.retrieve(@card.customer_id),
+
         )
 
   end
