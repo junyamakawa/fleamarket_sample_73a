@@ -66,6 +66,7 @@ class CreditCardsController < ApplicationController
         Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
         @card = CreditCard.find_by(user_id: current_user.id)
         customer = Payjp::Customer.retrieve(@card.customer_id)
+        @customer_card = customer.cards.retrieve(@card.card_id)
 
     end
   end
