@@ -4,10 +4,10 @@
   -#form_tagメソッドでcreateアクションに入力情報を渡します。
   = form_tag(credit_cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
     .number-details
-      .card-number カード番号
-      %span.must_check 必須
+      .number-details__card-number カード番号
+      %span.number-details__must-check 必須
     .number
-      = text_field_tag 'payment_card_no', "", class: 'cardnumber', id: "payment_card_no", placeholder: '半角数字のみ', type: "text", maxlength: "16"
+      = text_field_tag 'payment_card_no', "", class: 'number__cardnumber', id: "payment_card_no", placeholder: '半角数字のみ', type: "text", maxlength: "16"
     -# 事前にassets/imagesにcardsファイルを作成、中に各カード会社の画像を入れておき、呼び出す。
 
     .expirationdate
@@ -51,6 +51,6 @@
         %span.must_check 必須
       .securitycode__cardsecurity
         = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'securitycode__cardsecurity__form', id: "payment_card_cvc", maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
-      .card-question カード裏面の番号とは？
+      .securitycode__question カード裏面の番号とは？
     .add 
       = submit_tag "登録する", class: "add__btn", id: "payment_card_submit-button"
