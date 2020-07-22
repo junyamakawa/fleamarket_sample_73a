@@ -2,13 +2,15 @@
   %h2 新規アカウントの登録
 .account-page__user-form
   = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|  
-    = render "devise/shared/error_messages", resource: resource
     .field
       .field-label
         = f.label :nickname, "ニックネーム"
         %span.form-require 必須
       .field-input
         = f.text_field :nickname, autofocus: true, autocomplete: "nickname",placeholder: "フリマくん"
+      - if resource.errors.include?(:nickname)
+        .error_explanation
+          = resource.errors.full_messages_for(:nickname).first
     .field
       .field-label
         = f.label :introduction, "自己紹介"
@@ -20,6 +22,9 @@
         %span.form-require 必須
       .field-input
         = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "xxx@fleamarket.com"
+      - if resource.errors.include?(:email)
+        .error_explanation
+          = resource.errors.full_messages_for(:email).first
     .field
       .field-label
         = f.label :password,"パスワード"
@@ -29,12 +34,18 @@
             (7文字以上の半角英数を入力してください。)
       .field-input
         = f.password_field :password, autocomplete: "password"
+      - if resource.errors.include?(:password)
+        .error_explanation
+          = resource.errors.full_messages_for(:password).first
     .field
       .field-label
         = f.label :password_confirmation,"パスワード（確認用）"
         %span.form-require 必須
       .field-input
         = f.password_field :password_confirmation, autocomplete: "new-password"
+      - if resource.errors.include?(:password_confirmation)
+        .error_explanation
+          = resource.errors.full_messages_for(:password_confirmation).first
     .field
       .field-label
         = f.label :name, "お名前"
@@ -44,6 +55,12 @@
       .field-input
         = f.text_field :family_name, autofocus: true, autocomplete: "family_name",placeholder: "田中"
         = f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder: "太郎"
+      - if resource.errors.include?(:family_name)
+        .error_explanation
+          = resource.errors.full_messages_for(:family_name).first
+      - if resource.errors.include?(:first_name)
+        .error_explanation
+          = resource.errors.full_messages_for(:first_name).first
     .field
       .field-label
         = f.label :name_kana, "お名前（カナ）"
@@ -53,12 +70,21 @@
       .field-input
         = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana",placeholder: "タナカ"
         = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",placeholder: "タロウ"
+      - if resource.errors.include?(:family_name_kana)
+        .error_explanation
+          = resource.errors.full_messages_for(:family_name_kana).first
+      - if resource.errors.include?(:first_name_kana)
+        .error_explanation
+          = resource.errors.full_messages_for(:first_name_kana).first
     .field
       .field-label
         = f.label :birth_date, "生年月日"
         %span.form-require 必須
       .field-input
         = f.date_select :birth_date, use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)
+      - if resource.errors.include?(:birth_date)
+        .error_explanation
+          = resource.errors.full_messages_for(:birth_date).first
         
     .field
       .field-label
@@ -66,5 +92,8 @@
         %span.form-require 必須
       .field-input
         = f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",placeholder: "080xxxoooo"
+      - if resource.errors.include?(:phone_number)
+        .error_explanation
+          = resource.errors.full_messages_for(:phone_number).first     
     .actions
       = f.submit "次へ", class: 'btn'
