@@ -11,12 +11,12 @@
       .field-input
         = f.text_field :family_name, autofocus: true, autocomplete: "family_name",placeholder: "田中"
         = f.text_field :first_name, autofocus: true, autocomplete: "first_name",placeholder: "太郎"
-      - if resource.errors.include?(:family_name)
+      - if @address.errors.include?(:family_name)
         .error_explanation
-          = resource.errors.full_messages_for(:family_name).first
-      - if resource.errors.include?(:first_name)
+          = @address.errors.full_messages_for(:family_name).first
+      - if @address.errors.include?(:first_name)
         .error_explanation
-          = resource.errors.full_messages_for(:first_name).first
+          = @address.errors.full_messages_for(:first_name).first
     .field
       .field-label
         = f.label :name_kana, "お名前（カナ）"
@@ -26,21 +26,21 @@
       .field-input
         = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana",placeholder: "タナカ"
         = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana",placeholder: "タロウ"
-      - if resource.errors.include?(:family_name_kana)
+      - if @address.errors.include?(:family_name_kana)
         .error_explanation
-          = resource.errors.full_messages_for(:family_name_kana).first
-      - if resource.errors.include?(:first_name_kana)
+          = @address.errors.full_messages_for(:family_name_kana).first
+      - if @address.errors.include?(:first_name_kana)
         .error_explanation
-          = resource.errors.full_messages_for(:first_name_kana).first
+          = @address.errors.full_messages_for(:first_name_kana).first
     .field
       .field-label
         = f.label :post_code, "郵便番号"
         %span.form-require 必須
       .field-input
         = f.text_field :post_code, autofocus: true, autocomplete: "post_code",placeholder: "0001111"
-      - if resource.errors.include?(:post_code)
+      - if @address.errors.include?(:post_code)
         .error_explanation
-          = resource.errors.full_messages_for(:post_code).first
+          = @address.errors.full_messages_for(:post_code).first
     .field
       .field-label
         = f.label :address, "住所"
@@ -53,25 +53,25 @@
         = f.text_field :house_number, autofocus: true, autocomplete: "house_number",placeholder: "番地"
         %br
         = f.text_field :building_name, autofocus: true, autocomplete: "building_name",placeholder: "建物名・部屋番号"
-      - if resource.errors.include?(:prefecture)
+      - if @address.errors.include?(:prefecture)
         .error_explanation
-          = resource.errors.full_messages_for(:prefecture).first
-      - if resource.errors.include?(:city)
+          = @address.errors.full_messages_for(:prefecture).first
+      - if @address.errors.include?(:city)
         .error_explanation
-          = resource.errors.full_messages_for(:city).first
-      - if resource.errors.include?(:house_number)
+          = @address.errors.full_messages_for(:city).first
+      - if @address.errors.include?(:house_number)
         .error_explanation
-          = resource.errors.full_messages_for(:house_number).first
-      - if resource.errors.include?(:building_name)
+          = @address.errors.full_messages_for(:house_number).first
+      - if @address.errors.include?(:building_name)
         .error_explanation
-          = resource.errors.full_messages_for(:building_name).first
+          = @address.errors.full_messages_for(:building_name).first
     .field
       .field-label
         = f.label :phone_number, "電話番号"
       .field-input
         = f.text_field :phone_number, autofocus: true, autocomplete: "phone_number",placeholder: "080xxxoooo"
-      - if resource.errors.include?(:phone_number)
+      - if @address.errors.include?(:phone_number)
         .error_explanation
-          = resource.errors.full_messages_for(:phone_number).first
+          = @address.errors.full_messages_for(:phone_number).first
     .actions
       = f.submit "登録する", class: 'btn'
