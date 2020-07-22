@@ -21,7 +21,7 @@
         = f.label :email, "メールアドレス"
         %span.form-require 必須
       .field-input
-        = f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "xxx@fleamarket.com"
+        = f.text_field :email, autocomplete: "email",placeholder: "xxx@fleamarket.com"
       - if resource.errors.include?(:email)
         .error_explanation
           = resource.errors.full_messages_for(:email).first
