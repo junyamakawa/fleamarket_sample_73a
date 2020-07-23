@@ -9,9 +9,9 @@ class ProductsController < ApplicationController
   end
 
   def create 
-    @product = Product.new(product_params)
+    @product = Product.create(product_params)
     # binding.pry
-    @product.save!
+    @product.save
   end
 
   private
