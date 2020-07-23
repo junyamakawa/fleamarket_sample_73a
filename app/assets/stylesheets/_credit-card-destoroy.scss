@@ -14,19 +14,23 @@
       justify-content: space-evenly;
       margin-bottom: 30px;
       li {
-        background-color: skyblue;
-        padding: 20px 60px;
-        border-radius: 100px;
+        
         font-weight: bold;
         font-size: 20px;
         margin-top: 30px;
         .credit_card_new_link__btn {
           text-decoration: none;
           color: #ffff;
+          padding: 20px 60px;
+          background-color: skyblue;
+          border-radius: 100px;
         }
         .my_page_link__btn {
           text-decoration: none;
           color: #ffff;
+          padding: 20px 60px;
+          background-color: skyblue;
+          border-radius: 100px;
         }
       }
     }
