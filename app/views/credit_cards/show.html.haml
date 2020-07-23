@@ -5,17 +5,16 @@
     .credit_card__list
       .credit_card__list__title
         クレジットカード一覧
-      .credit_card__list__frame
+      .credit_card__list__flex
         .credit_card_info
-          .credit_card_info__brand
           .credit_card_info__numbers
             .number
-              = "**** **** **** " + @customer_card.last4
+              = " **** **** **** " + @customer_card.last4
             .expiration_date
               .expiration_date__title
                 有効期限
               .expiration_date__info
-                = @exp_month + " / " + @exp_year
+                = @exp_month + "月  " + @exp_year + "年 "
         .destroy__function
           .destroy__function__link
             = link_to credit_card_path, method: :delete, class: "destroy__function__link__btn" do 
