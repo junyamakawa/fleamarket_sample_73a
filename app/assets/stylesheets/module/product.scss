@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+
+
+
+.productMain {
+  background-color: #f8f8f8;
+  height: 100%;
+  width: 100%;
+  .showMain {
+    padding: 40px;
+    margin: 0 auto;
+    .itemBox {
+      height: 1227px;
+      width: 700px;
+      background-color:$white;
+      padding: 24px 40px 40px;
+      margin: 0 auto;
+      .itemBox__name {
+        height: 28px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 24px;
+        margin-bottom: 15px;
+        h2 {
+          font-weight: bold;
+        }
+      }
+      .itemBox__body {
+        height: 443px;
+        width: 620px;
+        margin-top: 15px 0 0;
+        margin: 0 auto;
+        text-align: center;
+        ul {
+          display: flex;
+          justify-content: center;
+        }
+        .img {
+          margin: 5px 5px 0;
+          list-style: none;
+          object-fit: cover;
+        }
+      }
+      .itemBox__price {
+        height: 100px;
+        width: 620px;
+        margin: 24px 0 24px;
+        text-align: center;
+        p.price {
+          font-size: 37px;
+          font-weight: bold;
+        }
+      }
+      .itemBox__detail {
+        height: 27px;
+        width: 620px;
+        line-height: 1.5;
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+      .table {
+        height: 426px;
+        width: 620px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        .td--left {
+          background-color: #EEEEEE;
+          width: 152px;
+          text-align: center;
+        }
+        .td--right {
+          padding-left: 10px;
+        }
+        .category {
+          text-decoration: none; 
+          color: $thema_color_blue;
+          cursor: pointer;
+        }
+        .region {
+          color: $thema_color_blue;
+          text-decoration: none;
+          cursor: pointer;
+        }       
+      }
+      .optionArea {
+        height: 100px;
+        width: 620px;
+        .optionalBtn.likeBtn{
+          float: left;
+          padding: 6px 10px;
+          border-radius: 40px;
+          color: $thema_color_blue;
+          border: 1px solid #ffb340;
+        }
+        .optionalBtn {
+          float: right;
+          padding: 6px 10px;
+          border-radius: 4px;
+          color: #333;
+          border: 1px solid #333;
+        }
+      }
+    }
+    .commentBox {
+      padding: 24px;
+      width: 700px;
+      height: 304px;
+      margin: 10px auto 0;
+      background-color: $white;
+      .notice {
+        background-color: #F8F8F8;
+        margin: 10px 0;
+        padding: 8px;
+        font-size: 14px;
+      }
+      .commentBtn {
+        background-color: $thema_color_blue;
+        line-height: 48px;
+        border: 1px solid $thema_color_blue;
+        color: $white;
+        width: 60%;
+        font-size: 18px;
+        border-radius: 100px;
+        margin: 10px auto;
+        display: block;
+      }
+    }
+    .links {
+      width: 700px;
+      height: 24px;
+      margin: 0 auto;
+      display: flex;
+      background-color: #f8f8f8;
+      justify-content: space-between;
+      color: $thema_color_blue;
+      cursor: pointer;
+      .goToLink{
+        text-decoration: none;
+        color:$thema_color_blue;
+      }
+    }
+    .relatedItems {
+      width: 700px;
+      height: 328px;
+      background-color: #f8f8f8;
+      margin: 24px  auto 0;
+      .seeMore {
+        display: block;
+        color: $thema_color_blue;
+        margin-bottom: 8px;
+        font-weight: bold;
+        font-size: 22px;
+        position: relative;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .productLists {
+        height: 245px;
+        margin-top: 32px;
+        .productList {
+          background-color: $white;
+          height: 100%;
+          width: calc(100% / 3);
+          .productLink {
+            text-decoration: none;
+            .productList__img {
+              width: 220px;
+              height: 150px;
+              overflow: hidden;
+              z-index: 0;
+              position: relative;
+              margin: 0;
+              .list__img {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              z-index: auto;
+              height: 150px;
+              object-fit: cover;
+              }
+            }
+            .productList__body {
+              background-color: $white;
+              color: #333;
+              padding: 16px;
+              &__name {
+                font-size: 16px;
+                overflow: hidden;
+                line-height: 1.5;
+              }
+              &__details {
+                display: flex;
+                justify-content: space-between;
+                font-size: 16px;
+                text-decoration: none;
+                &__price {
+                  font-weight: bold;
+                }
+              }
+              p.productList {
+                font-size: 10px;
+                font-weight: bold;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

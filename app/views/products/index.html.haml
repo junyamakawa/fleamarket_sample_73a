@@ -1,0 +1,90 @@
+.productMain
+  .showMain
+    .itemBox
+      .itemBox__name
+        %h2 ee
+      .itemBox__body
+        = image_tag 'IMG_01.jpg', :size => '560x346', class: 'img'
+        %ul 
+          %li 
+            = image_tag 'IMG_01.jpg', :size => '140x87', class: 'img'
+          %li
+            = image_tag 'IMG_01.jpg', :size => '140x87', class: 'img'
+      .itemBox__price
+        %p.price ￥1,000円 
+        .itemBox__price-detail
+          %span（税込） 
+          %span 送料込み
+      .itemBox__detail
+        eee
+      .table
+        %table{:border => "1", :bordercolor => "#e6e6e6", :width => "620", :height => "426"}
+          %tr
+            %td.td--left 出品者
+            %td.td--right ss
+          %tr
+            %td.td--left カテゴリー
+            %td.td--right 
+              %ul
+                %li= link_to "ベビー・キッズ","#", class: "category" 
+                %li= link_to "ベビー服（男の子用）〜95cm", "#", class: "category" 
+                %li= link_to "アウター", "#", class: "category" 
+          %tr
+            %td.td--left ブランド
+            %td.td--right 
+          %tr
+            %td.td--left 商品のサイズ
+            %td.td--right 
+          %tr
+            %td.td--left 商品の状態
+            %td.td--right 新品/未使用
+          %tr
+            %td.td--left 配送料の負担
+            %td.td--right 送料込み（出品者負担）
+          %tr
+            %td.td--left 発送元の地域
+            %td.td--right 
+              = link_to "北海道", "#", class:"region"
+          %tr
+            %td.td--left 発送日の目安
+            %td.td--right 1-2日で発送
+      .optionArea
+        %ul
+          %li.optionalBtn.likeBtn 
+            = icon('fa', 'star', class: 'star')
+            お気に入り 0 
+          %li.optionalBtn
+            = icon('fa', 'flag', class: 'flag')  
+            不適切な商品の通報
+           
+    .commentBox
+      = form_with(url: "#", local: true, method: :post, class: "form__text") do |form|
+        = form.text_area :comment, size: "70x4"
+        .notice 
+          相手のことを考え丁寧なコメントを心がけましょう。
+          %br 不快な言葉遣いなどは、利用制限や退会処分となることがあります。
+        = button_tag type: "submit", class: "commentBtn" do 
+          %i.fas.fa-comment 
+          = "コメントする"
+    
+    .links
+      .links__back
+        = link_to "< 前の商品", "#", class:"goToLink"
+      .links__forward
+        = link_to "次の商品 >", "#", class:"goToLink"
+    .relatedItems
+      = link_to "ベビー・キッズをもっと見る", "#" , class:"seeMore"
+      .productLists      
+        .productList
+          = link_to "#", class:"productLink" do
+            .productList__img
+              =image_tag 'IMG_02.png', :size =>'220', class: "list__img"
+            .productList__body
+              .productList__body__name
+                ccc
+              .productList__body__details
+                .productList__body__details__price 1000円
+                .productList__body__details__star
+                  = icon('fa', 'star', class: 'star')
+                  0
+              %p.productList (税込)

@@ -1,0 +1,140 @@
+.account-page__header{
+  border-top: 1px $light_gray solid;
+  border-bottom: 1px $light_gray solid;
+
+  h2 {
+    letter-spacing: 3px;
+    font-size: 25px;
+    font-weight: 200;
+    text-align: center;
+    line-height: 3;
+  }
+}
+
+.account-page__user-form{
+  .new_user{
+    width: 80%;
+    margin: 0 auto;
+    .field {
+      margin:25px 100px 25px 100px;
+
+      .field-label {
+        padding: 10px 0;
+        letter-spacing: 1px;
+        font-size: 14px;
+        font-weight: 200;
+
+        i {
+          font-size: 11px;
+        }
+      }
+
+      .field-input {
+        input {
+          width: 40%;
+          padding: 10px;
+          letter-spacing: 1px;
+        }
+        
+        #user_family_name, #user_first_name, #user_family_name_kana, #user_first_name_kana{
+          width: 30%;
+        }
+        
+        #user_birth_date_1i, #user_birth_date_2i, #user_birth_date_3i{
+          height: 48px;
+          width: 30%;
+        }
+      }
+      
+      .form-require {
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+    }
+
+    .btn {
+        display: block;
+        width: 40%;
+        height: 60px;
+        padding: 0 30px;
+        line-height: 60px;
+        letter-spacing: 1px;
+        text-align: center;
+        border: none;
+        border-radius: 2px;
+        margin: 30px auto;
+        cursor: pointer;
+        background-color: $light_blue;
+        color: $white;
+    }
+  }
+}
+
+.account-page__address-form{
+  .new_address{
+    width: 80%;
+    margin: 0 auto;
+    .field {
+      margin:25px 100px 25px 100px;
+
+      .field-label {
+        padding: 10px 0;
+        letter-spacing: 1px;
+        font-size: 14px;
+        font-weight: 200;
+
+        i {
+          font-size: 11px;
+        }
+      }
+
+      .field-input {
+        input {
+          width: 40%;
+          padding: 10px;
+          letter-spacing: 1px;
+        }
+        
+        #address_prefecture, #address_city, #address_house_number, #address_building_name{
+          width: 60%;
+        }
+      }
+      
+      .form-require {
+        background: #ea352d;
+        margin: 0 0 0 8px;
+        padding: 2px 4px;
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        vertical-align: top;
+      }
+    }
+
+    .btn {
+        display: block;
+        width: 40%;
+        height: 60px;
+        padding: 0 30px;
+        line-height: 60px;
+        letter-spacing: 1px;
+        text-align: center;
+        border: none;
+        border-radius: 2px;
+        margin: 30px auto;
+        cursor: pointer;
+        background-color: $light_blue;
+        color: $white;
+    }
+  }
+}
+
+.account-page__content{
+  width: 80%;
+  margin: 30px auto;
+}

@@ -1,0 +1,39 @@
+@mixin selector {
+  margin-top: 16px;
+  align-items: center;
+  display: inline-flex;
+  width: 100%;
+  &__box {
+    display: inline-block;
+    position: relative;
+    width: inherit;
+    select::-ms-expand {
+      display: none;
+    }
+    select {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      color: #222;
+      font-size: 16px;
+      height: 48px;
+      line-height: 1;
+      margin: 0;
+      outline: none;
+      padding: 0 56px 0 16px;
+      width: 100%;
+    }
+    svg {
+      bottom: 0;
+      margin: auto;
+      pointer-events: none;
+      position: absolute;
+      right: 16px;
+      top: 0;
+    }
+  }
+}
