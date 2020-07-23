@@ -11,6 +11,7 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.integer       :preparation_day_id, null: false, foreign_key: true
       t.integer       :price,              null: false
       t.references	  :user,               null: false, foreign_key: true
+      t.integer       :status,             null: false, defalut: 0
       t.timestamps
     end
   end
