@@ -59,7 +59,7 @@ class CreditCardsController < ApplicationController
   end
 
   def buy
-    @product = Product.find(1)
+    @product = Product.find(params[:product_id])
     # @images = @product.images.all
     
     if user_signed_in?
@@ -74,7 +74,7 @@ class CreditCardsController < ApplicationController
   end
 
   def pay
-    @product = Product.find(1)
+    @product = Product.find(params[:product_id])
     # @images = @product.images.all
       
     @product.with_lock do

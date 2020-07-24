@@ -3,4 +3,4 @@
 .amount
   = "#{@product.price}" + "円"
 .confirmation
-  = link_to "登録クレジットカードで購入する", pay_product_credit_card_path(product_id: 1), method: :post
+  = link_to "登録クレジットカードで購入する", pay_product_credit_card_path(@product), method: :post
