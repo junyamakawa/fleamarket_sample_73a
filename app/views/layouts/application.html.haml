@@ -14,7 +14,7 @@
       .header
         .header__innar
           .header__innar__main
-            =link_to  "root_path" do
+            =link_to root_path do
               = image_tag asset_path("logo.png"), alt: 'FURIMA logo', class: 'header__innar__main__Logo'
             =form_with(url: "/",local: true, method: :get, class: "header__innar__main__form") do |form|
               =form.text_field :keyword, placeholder: "キーワードから検索する", class: "header__innar__main__form__SearchInput"

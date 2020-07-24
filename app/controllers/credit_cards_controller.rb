@@ -61,7 +61,7 @@ class CreditCardsController < ApplicationController
   def buy
     @product = Product.find(params[:product_id])
     # @images = @product.images.all
-    
+
     if user_signed_in?
       @user = current_user
       if @user.credit_cards.present?
@@ -78,7 +78,9 @@ class CreditCardsController < ApplicationController
   def pay
     @product = Product.find(params[:product_id])
     # @images = @product.images.all
-      
+    if @product.status == 1 
+      redirect_to "/", alert: "売り切れています"
+    else
     @product.with_lock do
       if current_user.credit_cards.present?
         @card = CreditCard.find_by(user_id: current_user.id)
@@ -94,5 +96,6 @@ class CreditCardsController < ApplicationController
       end
     end
   end
+end
   
 end
