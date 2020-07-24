@@ -69,6 +69,8 @@ class CreditCardsController < ApplicationController
         @card = CreditCard.find_by(user_id: current_user.id)
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @customer_card = customer.cards.retrieve(@card.card_id)
+      else
+        redirect_to  new_credit_card_path, alert: "クレジット登録してください。"
       end
     end
   end
