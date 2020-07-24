@@ -75,8 +75,10 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'active_hash'
+  gem 'pry-rails'
 end
 
 gem 'devise'
 gem 'carrierwave'
-gem 'fog-aws'
+gem 'mini_magick'
