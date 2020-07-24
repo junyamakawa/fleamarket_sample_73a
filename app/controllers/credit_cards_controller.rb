@@ -88,7 +88,7 @@ class CreditCardsController < ApplicationController
           customer: Payjp::Customer.retrieve(@card.customer_id),
           currency: 'jpy'
         )
-        
+        @product.update( status: 1 )
       else
         redirect_to  new_credit_card_path, alert: "クレジット登録してください。"
       end
