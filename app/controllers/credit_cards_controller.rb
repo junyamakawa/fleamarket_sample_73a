@@ -78,9 +78,7 @@ class CreditCardsController < ApplicationController
   def pay
     @product = Product.find(params[:product_id])
     # @images = @product.images.all
-    if @product.status == 1 
-      redirect_to "/", alert: "売り切れています"
-    else
+
     @product.with_lock do
       if current_user.credit_cards.present?
         @card = CreditCard.find_by(user_id: current_user.id)
@@ -91,11 +89,10 @@ class CreditCardsController < ApplicationController
           currency: 'jpy'
         )
         @product.update( status: 1 )
+        redirect_to root_path, alert: "購入しました。"
       else
         redirect_to  new_credit_card_path, alert: "クレジット登録してください。"
       end
     end
   end
-end
-  
 end
