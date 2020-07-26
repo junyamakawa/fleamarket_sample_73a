@@ -10,7 +10,7 @@ class CreditCardsController < ApplicationController
     
 
     if params["payjp_token"].blank?
-      redirect_to action: "new", alert: "クレジットカードを登録できませんでした。"
+      redirect_to new_credit_card_path , alert: "クレジットカードを登録できませんでした。"
     else
       customer = Payjp::Customer.create(
         email: current_user.email,
