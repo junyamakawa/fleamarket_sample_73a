@@ -1,12 +1,12 @@
 class CreditCardsController < ApplicationController
   require "payjp" 
+  before_action :set_Payjp_key, only: [:create, :show, :destroy, :buy, :pay]
 
   def new
   end
 
   def create 
     
-    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
 
     if params["payjp_token"].blank?
       redirect_to action: "new", alert: "クレジットカードを登録できませんでした。"
@@ -30,7 +30,6 @@ class CreditCardsController < ApplicationController
     if @card.blank?
       redirect_to action: "new" 
     else
-      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
 
       customer = Payjp::Customer.retrieve(@card.customer_id)
 
@@ -47,7 +46,6 @@ class CreditCardsController < ApplicationController
     if @card.blank?
       redirect_to action: "new" 
     else
-      Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
 
       customer = Payjp::Customer.retrieve(@card.customer_id)
 
@@ -60,12 +58,10 @@ class CreditCardsController < ApplicationController
 
   def buy
     @product = Product.find(params[:product_id])
-    # @images = @product.images.all
 
     if user_signed_in?
       @user = current_user
       if @user.credit_cards.present?
-        Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
         @card = CreditCard.find_by(user_id: current_user.id)
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @customer_card = customer.cards.retrieve(@card.card_id)
@@ -77,12 +73,10 @@ class CreditCardsController < ApplicationController
 
   def pay
     @product = Product.find(params[:product_id])
-    # @images = @product.images.all
 
     @product.with_lock do
       if current_user.credit_cards.present?
         @card = CreditCard.find_by(user_id: current_user.id)
-        Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
         charge = Payjp::Charge.create(
           amount: @product.price,
           customer: Payjp::Customer.retrieve(@card.customer_id),
@@ -95,4 +89,10 @@ class CreditCardsController < ApplicationController
       end
     end
   end
+
+  def set_Payjp_key
+    Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+  end
+
+
 end
