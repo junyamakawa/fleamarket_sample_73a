@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", function(){
+window.addEventListener("turbolinks:load", function(){
 
   let submit = document.getElementById("payment_card_submit-button");
 
