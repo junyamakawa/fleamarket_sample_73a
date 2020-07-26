@@ -62,10 +62,10 @@ class CreditCardsController < ApplicationController
 
     if user_signed_in?
       @user = current_user
-       @user.credit_cards.present?
-        @card = CreditCard.find_by(user_id: current_user.id)
-        customer = Payjp::Customer.retrieve(@card.customer_id)
-        @customer_card = customer.cards.retrieve(@card.card_id)
+      @user.credit_cards.present?
+      @card = CreditCard.find_by(user_id: current_user.id)
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      @customer_card = customer.cards.retrieve(@card.card_id)
 
       
     end
