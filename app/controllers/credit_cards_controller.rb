@@ -62,14 +62,14 @@ class CreditCardsController < ApplicationController
 
 
     if user_signed_in?
-      if @product.status == "sale"
+      if @product.status == "sold"
+        redirect_to root_path,alert: "売り切れています"
+      else
       @user = current_user
       @user.credit_cards.present?
       @card = CreditCard.find_by(user_id: current_user.id)
       customer = Payjp::Customer.retrieve(@card.customer_id)
       @customer_card = customer.cards.retrieve(@card.card_id)
-      else 
-        redirect_to root_path,alert: "売り切れています"
       end
 
 
@@ -80,7 +80,9 @@ class CreditCardsController < ApplicationController
     @product = Product.find(params[:product_id])
 
     @product.with_lock do
-      if @product.status == "sale"
+      if @product.status == "sold"
+        redirect_to root_path, alert: "売り切れています。"
+      else
         @card = CreditCard.find_by(user_id: current_user.id)
         charge = Payjp::Charge.create(
           amount: @product.price,
@@ -89,8 +91,6 @@ class CreditCardsController < ApplicationController
         )
         @product.update( status: 1 )
         redirect_to root_path, alert: "購入しました。"
-      else
-        redirect_to root_path, alert: "売り切れています。"
       end
     end
   end
