@@ -1,5 +1,6 @@
 class CreditCardsController < ApplicationController
   require "payjp" 
+  before_action :move_to_new, only: [:buy, :pay]
   before_action :set_Payjp_key, only: [:create, :show, :destroy, :buy, :pay]
 
   def new
@@ -61,13 +62,12 @@ class CreditCardsController < ApplicationController
 
     if user_signed_in?
       @user = current_user
-      if @user.credit_cards.present?
+       @user.credit_cards.present?
         @card = CreditCard.find_by(user_id: current_user.id)
         customer = Payjp::Customer.retrieve(@card.customer_id)
         @customer_card = customer.cards.retrieve(@card.card_id)
-      else
-        redirect_to  new_credit_card_path, alert: "クレジット登録してください。"
-      end
+
+      
     end
   end
 
@@ -75,7 +75,6 @@ class CreditCardsController < ApplicationController
     @product = Product.find(params[:product_id])
 
     @product.with_lock do
-      if current_user.credit_cards.present?
         @card = CreditCard.find_by(user_id: current_user.id)
         charge = Payjp::Charge.create(
           amount: @product.price,
@@ -84,9 +83,7 @@ class CreditCardsController < ApplicationController
         )
         @product.update( status: 1 )
         redirect_to root_path, alert: "購入しました。"
-      else
         redirect_to  new_credit_card_path, alert: "クレジット登録してください。"
-      end
     end
   end
 
@@ -94,5 +91,7 @@ class CreditCardsController < ApplicationController
     Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
   end
 
-
+  def move_to_new
+    redirect_to new_credit_card_path unless current_user.credit_cards.present?
+  end
 end
