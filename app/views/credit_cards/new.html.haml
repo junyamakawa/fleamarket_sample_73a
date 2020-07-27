@@ -1,14 +1,12 @@
 .card_add 
   .title クレジットカード情報入力
 
-  -#form_tagメソッドでcreateアクションに入力情報を渡します。
   = form_tag(credit_cards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
     .number-details
       .number-details__card-number カード番号
       %span.number-details__must-check 必須
     .number
       = text_field_tag 'payment_card_no', "", class: 'number__cardnumber', id: "payment_card_no", placeholder: '半角数字のみ', type: "text", maxlength: "16"
-    -# 事前にassets/imagesにcardsファイルを作成、中に各カード会社の画像を入れておき、呼び出す。
 
     .expirationdate
       .expirationdate__details
