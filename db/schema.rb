@@ -41,18 +41,16 @@ ActiveRecord::Schema.define(version: 2020_07_18_131028) do
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.text "description", null: false
-    t.integer "category_id", null: false
     t.string "brand"
-    t.integer "condition_id", null: false
-    t.integer "delivery_cost", null: false
-    t.integer "region_id", null: false
-    t.integer "preparation_day_id", null: false
+    t.integer "condition_id"
+    t.integer "delivery_cost_id"
+    t.integer "region_id"
+    t.integer "preparation_day_id"
     t.integer "price", null: false
-    t.bigint "user_id", null: false
+    t.integer "user_id"
     t.integer "status", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -75,5 +73,4 @@ ActiveRecord::Schema.define(version: 2020_07_18_131028) do
   end
 
   add_foreign_key "credit_cards", "users"
-  add_foreign_key "products", "users"
 end
