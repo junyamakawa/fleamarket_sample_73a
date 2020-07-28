@@ -29,7 +29,7 @@
           %ul.mypage-nav-list
             %li.nav-list= link_to "プロフィール", "#", class: "nav-list"
             %li.nav-list= link_to "発送元・お届け先住所変更", "#", class: "nav-list"
-            %li.nav-list= link_to "支払い方法", "#", class: "nav-list"
+            %li.nav-list= link_to "支払い方法", credit_card_path(current_user.id), method: :get ,class: "nav-list"
             %li.nav-list= link_to "メール/パスワード", "#", class: "nav-list"
             %li.nav-list= link_to "本人情報", "#", class: "nav-list"
             %li.nav-list= link_to "電話番号の確認", "#", class: "nav-list"
