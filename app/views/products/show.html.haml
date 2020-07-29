@@ -2,7 +2,8 @@
   .showMain
     .itemBox
       .itemBox__name
-        %h2 ee
+        %h2 
+          = @product.name
       .itemBox__body
         = image_tag 'IMG_01.jpg', :size => '560x346', class: 'img'
         %ul 
@@ -11,17 +12,20 @@
           %li
             = image_tag 'IMG_01.jpg', :size => '140x87', class: 'img'
       .itemBox__price
-        %p.price ￥1,000円 
+        %p.price
+          ¥
+          = @product.price
         .itemBox__price-detail
           %span（税込） 
           %span 送料込み
       .itemBox__detail
-        eee
+        = @product.description
       .table
         %table{:border => "1", :bordercolor => "#e6e6e6", :width => "620", :height => "426"}
           %tr
             %td.td--left 出品者
-            %td.td--right ss
+            %td.td--right
+              = @product.user.nickname
           %tr
             %td.td--left カテゴリー
             %td.td--right 
@@ -32,12 +36,13 @@
           %tr
             %td.td--left ブランド
             %td.td--right 
+              = @product.brand
           %tr
             %td.td--left 商品のサイズ
             %td.td--right 
           %tr
             %td.td--left 商品の状態
-            %td.td--right 新品/未使用
+            %td.td--right
           %tr
             %td.td--left 配送料の負担
             %td.td--right 送料込み（出品者負担）
