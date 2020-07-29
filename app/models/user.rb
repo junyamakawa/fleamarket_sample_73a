@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :credit_cards, dependent: :destroy
-  
+  has_many :products, dependent: :destroy
   has_one :address
 
   validates :nickname, presence: true
