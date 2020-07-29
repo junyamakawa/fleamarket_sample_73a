@@ -43,12 +43,16 @@
             border-style: dashed;
             border-color: rgb(204, 204, 204);
             border-image: initial;
+            // @media screen { .js-file {display: none;}}
             .camera {
               height: 24px;
               width: 24px;
               margin-bottom: 8px;
               position: absolute;
               top: 50px;
+            }
+            .js-file_group {
+              display: inline-flex;
             }
             .box__photobox__photoupload__comment {
               font-size: 12px;
