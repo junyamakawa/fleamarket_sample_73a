@@ -1,6 +1,6 @@
 .main
   .showmain
-    = form_for @product do |f|
+    = form_with model: @product do |f|
       .box
         .box__photobox
           .detail
@@ -15,7 +15,6 @@
               = f.fields_for :images do |i|
                 = i.file_field :src
               = icon('fas', 'camera', class: 'camera')
-
               .box__photobox__photoupload__comment
                 ドラッグアンドドロップ<br>またはクリックしてファイルをアップロード
         %hr.divide-border
@@ -29,14 +28,14 @@
                   必須
               .style_formLabel
                 .style_formLabel__textarea
-                  = f.text_area :name, autocomplete: "off", placeholder: "40文字まで", type: "string"
+                  = f.text_field :name, autocomplete: "off", placeholder: "40文字まで", type: "string"
           .box__explanation__item-detail
             .detail
               .detail__title
                 商品の説明
               .detail__required-logo
                 必須
-              = f.text_area :description, size: "70x5", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n例) 2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", type: "text"
+            = f.text_area :description, size: "70x5", placeholder: "商品の説明（必須 1,000文字以内）\n（色、素材、重さ、定価、注意点など）\n例) 2010年頃に１万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。", type: "text"
             .box__explanation__item-detail__counter
               %span
                 0/1000
@@ -49,11 +48,11 @@
               .detail__title
                 カテゴリー
               .detail__required-logo
-                必須
+                必須（←カテゴリー機能で実装予定）
             .selector
               .selector__box
                 = f.fields_for :categories do |category|
-                  = category.text_area :category_name, autocomplete: "off",  placeholder: "カテゴリーを入力してください", type: "string"
+                  = category.text_area :category_name, autocomplete: "off",  placeholder: "カテゴリー機能で実装予定です", type: "string"
           .box__item-status__brand
             .box__item-status__brand__box
               .detail
@@ -63,7 +62,7 @@
                   任意
               .style_formLabel
                 .style_formLabel__textarea
-                  = f.text_area :brand, autocomplete: "off",  placeholder: "例）シャネル", type: "string"
+                  = f.text_field :brand, autocomplete: "off",  placeholder: "例）シャネル", type: "string"
           .box__item-status__condition
             .detail
               .detail__title
@@ -129,7 +128,7 @@
                 ¥
               .box__sellingPrice__frame__actual__textArea
                 .box__sellingPrice__frame__actual__textArea__inputArea
-                  =f.text_area :price, autocomplete: "off", placeholder: "0", type: "number"
+                  =f.number_field :price, autocomplete: "off", placeholder: "0", type: "number"
             .box__sellingPrice__frame__commision
               .box__sellingPrice__frame__commision__text
                 %div
