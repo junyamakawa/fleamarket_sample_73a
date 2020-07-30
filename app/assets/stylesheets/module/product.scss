@@ -12,7 +12,6 @@
     padding: 40px;
     margin: 0 auto;
     .itemBox {
-      height: 1227px;
       width: 700px;
       background-color:$white;
       padding: 24px 40px 40px;
@@ -100,6 +99,27 @@
           border-radius: 4px;
           color: #333;
           border: 1px solid #333;
+        }
+      }
+
+      .btn {
+        background-color: red;
+        width: 95%;
+        height: 50px;
+        margin: 5px auto;
+        line-height: 50px;
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        .buyBtn{
+          font-size: 18px;
+          color: $white;
+          text-decoration: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          height:100%;
+          width: 100%;
         }
       }
     }
