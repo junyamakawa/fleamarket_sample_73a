@@ -12,10 +12,22 @@
     padding: 40px;
     margin: 0 auto;
     .itemBox {
-      width: 700px;
       background-color:$white;
       padding: 24px 40px 40px;
       margin: 0 auto;
+      .itemBox__menu {
+        ul {
+          display: flex;
+          justify-content: flex-end;
+          li{
+            padding-right: 10px;
+            padding-left: 10px;
+          }
+          li+ li {
+            border-left: 1px solid #333;
+          }
+        }
+      }
       .itemBox__name {
         height: 28px;
         text-align: center;
@@ -29,8 +41,7 @@
       .itemBox__body {
         height: 443px;
         width: 620px;
-        margin-top: 15px 0 0;
-        margin: 0 auto;
+        margin: 15px auto;
         text-align: center;
         ul {
           display: flex;
@@ -45,7 +56,7 @@
       .itemBox__price {
         height: 100px;
         width: 620px;
-        margin: 24px 0 24px;
+        margin: 15px auto;
         text-align: center;
         p.price {
           font-size: 37px;
@@ -57,12 +68,12 @@
         width: 620px;
         line-height: 1.5;
         font-size: 18px;
-        margin-bottom: 30px;
+        margin: 15px auto;
       }
       .table {
         height: 426px;
         width: 620px;
-        margin-bottom: 20px;
+        margin: 15px auto;
         font-size: 14px;
         .td--left {
           background-color: #EEEEEE;
@@ -84,8 +95,9 @@
         }       
       }
       .optionArea {
-        height: 100px;
+        height: 50px;
         width: 620px;
+        margin: 15px auto;
         .optionalBtn.likeBtn{
           float: left;
           padding: 6px 10px;
@@ -106,7 +118,7 @@
         background-color: red;
         width: 95%;
         height: 50px;
-        margin: 5px auto;
+        margin: 15px auto;
         line-height: 50px;
         text-align: center;
         cursor: pointer;
