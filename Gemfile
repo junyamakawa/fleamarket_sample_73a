@@ -90,3 +90,4 @@ gem 'devise'
 gem 'payjp'
 gem "jquery-rails"
 gem 'pry-rails'
+gem 'ancestry'
