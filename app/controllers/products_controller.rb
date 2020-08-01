@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
 
   def index 
-    @products = Product.all
+    @products = Product.where(status: 0)
   end
 
   def new
