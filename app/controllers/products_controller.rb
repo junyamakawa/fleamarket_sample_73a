@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :move_to_login, only: [:new]
 
   def index 
     @products = Product.where(status: 0)
