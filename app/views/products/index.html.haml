@@ -1,0 +1,18 @@
+.productlists
+  - @products.each do |product|
+    .productlists__productlist
+      .productlist--img
+        =image_tag 'IMG_01.jpg', :size =>'220', class: "img"
+      .productlist--body
+        .productlist--body__name 
+          = product.name
+        .productlist--body__details
+          %ul
+            %li
+              =product.price
+            %li
+              円
+            %li.fav
+              = icon('fa', 'star', class: 'star')
+              0
+          %p (税込)
