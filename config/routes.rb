@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   root to: 'users#index'
   resources :users, only: :show
   resources :credit_cards, only: [:new, :create, :show, :destroy] 
-  resources :products, only: [:index, :new, :show] do
+  resources :products, only: [:index, :new, :show, :destroy] do
     resources :credit_cards do
       member do
         get "buy"
