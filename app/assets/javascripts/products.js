@@ -5,13 +5,13 @@ $(document).on('turbolinks:load', ()=> {
                     <input class="js-file" type="file"
                     name="product[images_attributes][${index}][src]"
                     id="product_images_attributes_${index}_src"><br>
-                    <div class="js-remove">削除</div>
                   </div>`;
     return html;
   }
   // プレビュー用のimgタグを生成する関数
   const buildImg = (index, url)=> {
-    const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
+    const html = `<div class= "images"><img data-index="${index}" src="${url}" width="118px" height="118px"><br>
+    <div class="js-remove">削除</div></div>`;
     return html;
   }
 
@@ -24,6 +24,7 @@ $(document).on('turbolinks:load', ()=> {
   $('.hidden-destroy').hide();
 
   $('#image-box').on('change', '.js-file', function(e) {
+    // console.log("aaa")
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];
@@ -39,19 +40,43 @@ $(document).on('turbolinks:load', ()=> {
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     }
+    // console.log($("img").length);
+    // if (img = $(`img[data-index="${targetIndex}"]`)[6]) {
+    // imgタグが７枚目になった時点で以下を実行しろ
+    //   クラス名 .box__photoboxのcssのheightを450pxに変更しろ
+    //   クラス名 .box__photobox__photoupload__containerのcssを高さ300pxに変更しろ
+    if ($("img").length >= 7) {
+      $('.box__photobox').css({'height':'450px'});
+      $('.box__photobox__photoupload__container').css({'height':'300px'});
+      $('#previews').css({'height':'300px'});
+    };
+  });
+  $('#previews').on('click', function(e) { 
+    const box = $(".js-file:last");
+    box.trigger("click");
   });
 
-  $('#image-box').on('click', '.js-remove', function() {
+  $('#previews').on('click', '.js-remove', function(e) {
+    e.stopPropagation();
     const targetIndex = $(this).parent().data('index')
     // 該当indexを振られているチェックボックスを取得する
     const hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+  
+
     // もしチェックボックスが存在すればチェックを入れる
     if (hiddenCheck) hiddenCheck.prop('checked', true);
 
+    // 削除するための機能？
     $(this).parent().remove();
     $(`img[data-index="${targetIndex}"]`).remove();
 
     // 画像入力欄が0個にならないようにしておく
     if ($('.js-file').length == 0) $('#image-box').append(buildFileField(fileIndex[0]));
+    // console.log($("img").length);
+    if ($("img").length <= 6) {
+      $('.box__photobox').css({'height':'300px'});
+      $('.box__photobox__photoupload__container').css({'height':'150px'});
+      $('#previews').css({'height':'150px'});
+    }
   });
 });

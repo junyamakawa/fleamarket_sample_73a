@@ -91,3 +91,8 @@
                   = icon('fa', 'star', class: 'star')
                   0
               %p.productList (税込)
+= link_to '編集', edit_product_path(product)
+  編集する
+= link_to '削除', product_path(product), method: :delete
+  削除する
+

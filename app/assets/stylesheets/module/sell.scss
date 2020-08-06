@@ -28,12 +28,12 @@
         }
         &__photoupload {
           height: 158px;
-          width: 620px;
+          width: 624px;
           margin-top: 16px;
           &__container {
             background-color: rgb(245, 245, 245);
             height:150px;
-            width: 620px;
+            width: 624px;
             display: flex;
             flex-wrap: wrap;
             margin: -8px -4px 0px;
@@ -44,6 +44,31 @@
             border-color: rgb(204, 204, 204);
             border-image: initial;
             // @media screen { .js-file {display: none;}}
+            #previews {
+              height:150px;
+              width: 624px;
+              display: flex;
+              flex-wrap: wrap;
+              .images {
+                margin-right: 7px;
+                justify-content: space-around;
+              }
+              .images:first-child {
+                margin-right: 6px;
+              }
+              .images:last-child {
+                margin-right: 0px;
+              }
+              .js-remove {
+                // display: inline-flex;
+                color: #0095ee;
+                margin-left: 10px;
+                // 位置指定
+              }
+            }
+            .js-file {
+              display: none;
+            }
             .camera {
               height: 24px;
               width: 24px;
@@ -51,9 +76,7 @@
               position: absolute;
               top: 50px;
             }
-            .js-file_group {
-              display: inline-flex;
-            }
+            
             .box__photobox__photoupload__comment {
               font-size: 12px;
               line-height: 1.4em;
