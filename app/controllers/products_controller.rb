@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  before_action :set_product, except: [:index, :new, :create]
+  
   def index
     @products = Product.all
   end
@@ -15,13 +17,12 @@ class ProductsController < ApplicationController
       redirect_to products_path
     else
       render :new
-      logger.debug @product.errors.inspect
     end
   end
 
   def show
     @product = Product.find(params[:id])
-    @images = Image.where(id: @product[:id])
+    @images = Image.where(product_id: @product[:id])
   end
 
   def edit
@@ -38,5 +39,9 @@ private
 
 def product_params
   params.require(:product).permit(:name, :description, :brand, :condition_id, :delivery_cost_id, :region_id, :preparation_day_id, :price, images_attributes: [:src], categories_attributes: [:category_name]).merge(user_id: current_user.id)  
+end
+
+def set_product
+  @product = Product.find(params[:id])
 end
   
