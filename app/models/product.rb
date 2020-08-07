@@ -3,14 +3,17 @@ class Product < ApplicationRecord
   has_one :order
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
-  has_many :categories, dependent: :destroy
-  accepts_nested_attributes_for :categories, allow_destroy: true
   belongs_to :user
   belongs_to_active_hash :condition
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :region
   belongs_to_active_hash :delivery_cost
-
+  enum status: {
+    出品中: 0,
+    売却済み: 1
+  }
+  validates_associated :images
+  validates :images, presence: true
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
   validates :condition_id, presence: true

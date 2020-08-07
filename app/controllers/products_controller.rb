@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
 
-  def index 
+  def index
+    @products = Product.all
   end
 
   def new
     @product = Product.new
     @product.images.new
-    @product.categories.new
   end
 
   def create
@@ -17,6 +17,11 @@ class ProductsController < ApplicationController
       render :new
       logger.debug @product.errors.inspect
     end
+  end
+
+  def show
+    @product = Product.find(params[:id])
+    @images = Image.where(id: @product[:id])
   end
 
   def edit
@@ -32,6 +37,6 @@ end
 private
 
 def product_params
-  params.require(:product).permit(:name, :description, :category_id, :brand, :condition_id, :delivery_cost_id, :region_id, :preparation_day_id, :price, images_attributes: [:src], categories_attributes: [:category_name]).merge(user_id: current_user.id)  
+  params.require(:product).permit(:name, :description, :brand, :condition_id, :delivery_cost_id, :region_id, :preparation_day_id, :price, images_attributes: [:src], categories_attributes: [:category_name]).merge(user_id: current_user.id)  
 end
   

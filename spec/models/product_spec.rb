@@ -1,10 +1,13 @@
 require 'rails_helper'
 describe Product do
+  let(:user) {create(:user)}
+  let(:image) {create(:image)}
+
   describe '#create' do
-    it "[WIP]必須項目を揃えれば登録できること" do
-      product = build(:product, name: nil)
+    it "画像がないと登録できないこと" do
+      product = build(:product)
       product.valid?
-      expect(product.errors[:name]).to include("を入力してください")
+      expect(product.errors[:src])
     end
     it "商品名がないと登録できないこと" do
       product = build(:product, name: nil)
