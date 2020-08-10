@@ -1,18 +1,1 @@
-.main
-  .showmain
-    = form_for @product do |f|
-      .box
-        .box__photobox
-          .detail
-            .detail__title
-              出品画像
-            .detail__required-logo
-              必須
-          %p.box__photobox__number-of-pictures
-            最大10枚までアップロードできます
-          .box__photobox__photoupload
-            .box__photobox__photoupload__container
-              = f.fields_for :images do |i|
-                = i.file_field :src
-              = icon('fas', 'camera', class: 'camera')
-        =f.submit "送信"
+= render 'form'

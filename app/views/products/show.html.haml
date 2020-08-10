@@ -88,3 +88,35 @@
                   = icon('fa', 'star', class: 'star')
                   0
               %p.productList (税込)
+%p 【画像】
+- @images.each do |image|
+  = image_tag image.src.url
+%br
+%p 【商品名】
+= @product.name
+%br
+%p 【商品の説明】
+= @product.description
+%br
+%p 【ブランド】
+= @product.brand
+%br
+%p 【商品の状態】
+= Condition.find(@product.condition_id).name
+%br
+%p 【発送元】
+= Region.find(@product.region_id).name
+%br
+%p 【発送までの日数】
+= PreparationDay.find(@product.preparation_day_id).name
+%br
+%p 【値段】
+= @product.price
+%br
+%p 【出品者】
+= User.find(@product.user_id).nickname
+%br
+%p 【出品中・売却済み】
+= @product.status
+%br
+
