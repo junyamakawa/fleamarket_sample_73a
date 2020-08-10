@@ -23,6 +23,3 @@ class Product < ApplicationRecord
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :user_id, presence: true
 end
-
-  enum status: { sale: 0, sold: 1 }
-end
