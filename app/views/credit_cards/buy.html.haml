@@ -1,0 +1,6 @@
+.payment
+  支払い金額   
+.amount
+  = "#{@product.price}" + "円"
+.confirmation
+  = link_to "登録クレジットカードで購入する", pay_product_credit_card_path(@product), method: :post

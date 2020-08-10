@@ -8,5 +8,14 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'users#index'
-  resources :products
+  resources :users, only: :show
+  resources :credit_cards, only: [:new, :create, :show, :destroy] 
+  resources :products do
+    resources :credit_cards do
+      member do
+        get "buy"
+        post "pay"
+      end
+    end
+  end
 end

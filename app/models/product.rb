@@ -24,3 +24,5 @@ class Product < ApplicationRecord
   validates :user_id, presence: true
 end
 
+  enum status: { sale: 0, sold: 1 }
+end
