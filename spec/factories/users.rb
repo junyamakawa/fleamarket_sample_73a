@@ -1,19 +1,17 @@
 FactoryBot.define do
 
   factory :user do
-    nickname              {"abe"}
-    email                 {"kkk@gmail.com"}
-    password              {"00000000"}
-    encrypted_password    {"00000000"}
-    family_name           {"赤"}
-    first_name            {"青"}
-    family_name_kana      {"アオ"}
-    first_name_kana       {"アカ"}
-    birth_date            {"1989-01-01"}
-    phone_number          {"08012345645"}
-    introduction          {"テスト"}
-
+    nickname              {"Dog"}
+    email                 {"aa@gmail.com"}
+    password              {"aaaaaaaa"}
+    encrypted_password    {"aaaaaaaa"}
+    family_name           {"小野"}
+    first_name            {"淳也"}
+    family_name_kana      {"オノ"}
+    first_name_kana       {"ジュンヤ"}
+    birth_date            {"19891018"}
+    phone_number          {"08000000000"}
+    introduction          {"Hello World"}
   end
-
 
 end

@@ -17,7 +17,7 @@ CarrierWave.configure do |config|
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/fleamarketsample73a'
 
   else 
-    config.storage :file
+    config.storage = :file
   end
   
 end

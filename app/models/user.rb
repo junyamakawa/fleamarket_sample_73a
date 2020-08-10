@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :credit_cards, dependent: :destroy
   
   has_one :address
+  has_many :products, dependent: :destroy
 
   validates :nickname, presence: true
   validates :family_name, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/ }

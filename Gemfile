@@ -81,12 +81,13 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  gem 'active_hash'
 end
 
 gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
-gem 'devise'
 gem 'payjp'
-gem "jquery-rails"
+gem 'mini_magick'
+gem 'jquery-rails'
 gem 'pry-rails'
