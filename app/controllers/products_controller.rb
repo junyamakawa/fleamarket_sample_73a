@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
   before_action :set_product, except: [:index, :new, :create]
   
   def index
-    @products = Product.all
+    @products = Product.where(status: 0)
   end
 
   def new
