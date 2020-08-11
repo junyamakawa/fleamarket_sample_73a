@@ -1,9 +1,10 @@
 .productlists
   - @products.each do |product|
     .productlists__productlist
-      =link_to root_path do
+      =link_to product_path(product.id) do
         .productlist--img
-          =image_tag 'IMG_01.jpg', :size =>'220', class: "img"
+          - first_image = product.images.first
+          = image_tag first_image.src.url, :size =>'220', class: "img"
         .productlist--body
           .productlist--body__name
             =product.name
