@@ -81,7 +81,6 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
-  gem 'active_hash'
 end
 
 gem 'devise'
@@ -90,4 +89,6 @@ gem 'fog-aws'
 gem 'payjp'
 gem 'mini_magick'
 gem 'jquery-rails'
+gem 'fog-aws'
+gem 'active_hash'
 gem 'pry-rails'
