@@ -86,7 +86,9 @@ end
 gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
-gem 'devise'
 gem 'payjp'
-gem "jquery-rails"
+gem 'mini_magick'
+gem 'jquery-rails'
+gem 'fog-aws'
+gem 'active_hash'
 gem 'pry-rails'
