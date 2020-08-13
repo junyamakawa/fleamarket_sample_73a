@@ -12,12 +12,8 @@
         %h2 
           = @product.name
       .itemBox__body
-        = image_tag 'IMG_01.jpg', :size => '560x346', class: 'img'
-        %ul 
-          %li 
-            = image_tag 'IMG_01.jpg', :size => '140x87', class: 'img'
-          %li
-            = image_tag 'IMG_01.jpg', :size => '140x87', class: 'img'
+        - @images.each do |image|
+          = image_tag image.src.url
       .itemBox__price
         %p.price
           ¥
@@ -47,19 +43,26 @@
           %tr
             %td.td--left 商品のサイズ
             %td.td--right 
+              = @product.
+                
           %tr
             %td.td--left 商品の状態
             %td.td--right
+              = Condition.find(@product.condition_id).name
           %tr
             %td.td--left 配送料の負担
-            %td.td--right 送料込み（出品者負担）
+            %td.td--right
+              ¥ 
+              = @product.price 
+              送料込み（出品者負担）
           %tr
             %td.td--left 発送元の地域
             %td.td--right 
-              = link_to "北海道", "#", class:"region"
+              = Region.find(@product.region_id).name
           %tr
             %td.td--left 発送日の目安
-            %td.td--right 1-2日で発送
+            %td.td--right
+              = PreparationDay.find(@product.preparation_day_id).name
       .optionArea
         %ul
           %li.optionalBtn.likeBtn 
