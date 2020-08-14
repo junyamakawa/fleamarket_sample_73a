@@ -40,10 +40,6 @@
             %td.td--left ブランド
             %td.td--right 
               = @product.brand
-          %tr
-            %td.td--left 商品のサイズ
-            %td.td--right 
-              = @product.
                 
           %tr
             %td.td--left 商品の状態
@@ -52,9 +48,7 @@
           %tr
             %td.td--left 配送料の負担
             %td.td--right
-              ¥ 
-              = @product.price 
-              送料込み（出品者負担）
+              = DeliveryCost.find(@product.delivery_cost_id).name
           %tr
             %td.td--left 発送元の地域
             %td.td--right 
