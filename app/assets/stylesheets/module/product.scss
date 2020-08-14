@@ -9,12 +9,10 @@
   height: 100%;
   width: 100%;
   .showMain {
-    padding: 40px;
+    width: 90%;
     margin: 0 auto;
     .itemBox {
       background-color:$white;
-      padding: 24px 40px 40px;
-      margin: 0 auto;
       .itemBox__menu {
         ul {
           display: flex;
@@ -40,7 +38,6 @@
       }
       .itemBox__body {
         height: 443px;
-        width: 620px;
         margin: 15px auto;
         text-align: center;
         ul {
@@ -55,7 +52,6 @@
       }
       .itemBox__price {
         height: 100px;
-        width: 620px;
         margin: 15px auto;
         text-align: center;
         p.price {
@@ -65,19 +61,22 @@
       }
       .itemBox__detail {
         height: 27px;
-        width: 620px;
         line-height: 1.5;
         font-size: 18px;
         margin: 15px auto;
       }
-      .table {
+      .table table {
         height: 426px;
-        width: 620px;
+        width: 95%;
         margin: 15px auto;
         font-size: 14px;
+        tr td{
+        border-collapse: collapse;
+        border:1px solid gray;
+        }
         .td--left {
           background-color: #EEEEEE;
-          width: 152px;
+          width: 25%;
           text-align: center;
         }
         .td--right {
@@ -96,7 +95,7 @@
       }
       .optionArea {
         height: 50px;
-        width: 620px;
+        width: 95%;
         margin: 15px auto;
         .optionalBtn.likeBtn{
           float: left;
@@ -136,15 +135,13 @@
       }
     }
     .commentBox {
-      padding: 24px;
-      width: 700px;
-      height: 304px;
-      margin: 10px auto 0;
+      margin: 15px auto;
       background-color: $white;
+      .form__text{
+        text-align: center;
+      }
       .notice {
-        background-color: #F8F8F8;
-        margin: 10px 0;
-        padding: 8px;
+        margin: 10px auto;
         font-size: 14px;
       }
       .commentBtn {
