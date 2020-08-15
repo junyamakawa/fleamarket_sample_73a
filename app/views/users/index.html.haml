@@ -71,59 +71,10 @@
       .pickupcategory__productbox__newproducts
         .title
           新規投稿商品
-      .pickupcategory__productbox__productlists
-        .pickupcategory__productbox__productlists__productlist
-          .productlist--img
-            =image_tag 'IMG_01.jpg', :size =>'220', class: "img"
-          .productlist--body
-            .productlist--body__name
-              aaa
-            .productlist--body__details
-              %ul
-                %li 1000円
-                %li
-                  = icon('fa', 'star', class: 'star')
-                  0
-              %p (税込)
-        .pickupcategory__productbox__productlists__productlist
-          .productlist--img
-            =image_tag 'IMG_02.png', :size =>'220', class: "img"
-          .productlist--body
-            .productlist--body__name
-              bbb
-            .productlist--body__details
-              %ul
-                %li 1000円
-                %li
-                  = icon('fa', 'star', class: 'star')
-                  0
-              %p (税込)
-        .pickupcategory__productbox__productlists__productlist
-          .productlist--img
-            =image_tag 'IMG_03.png', :size =>'220', class: "img"
-          .productlist--body
-            .productlist--body__name
-              ccc
-            .productlist--body__details
-              %ul
-                %li 1000円
-                %li
-                  = icon('fa', 'star', class: 'star')
-                  0
-              %p (税込)
-        .pickupcategory__productbox__productlists__productlist
-          .productlist--img
-            =image_tag 'IMG_04.png', :size =>'220', class: "img"
-          .productlist--body
-            .productlist--body__name
-              ddd
-            .productlist--body__details
-              %ul
-                %li 1000円
-                %li
-                  = icon('fa', 'star', class: 'star')
-                  0
-              %p (税込)
+        
+    .pickupcategory__productbox__productlists
+      = render partial: "products", collection: @new_products, as: "product"
+
   .pickupcategory
     .pickupcategory__head
       ピックアップブランド

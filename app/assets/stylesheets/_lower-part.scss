@@ -78,11 +78,11 @@
       width: 780px;
       margin: 0px auto;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-evenly;
       &__productlist {
+        margin-left: 5px;
         width: 220px;
         display: inline-block;
-        // float: left;
         .productlist--img {
           width: 220px;
           height: 150px;
@@ -116,8 +116,11 @@
             font-size: 16px;
             ul {
               display: flex;
-              align-items: center;
-              justify-content: space-between;
+              li {
+              }
+              .fav{
+                margin-left: 50px;
+              }
             }
             p {
               font-size: 10px;
