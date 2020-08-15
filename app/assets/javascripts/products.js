@@ -30,9 +30,9 @@ $(document).on('turbolinks:load', ()=> {
       fileIndex.shift();
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     }
-    もしimgタグが３枚目以上になった際に以下を実行せよ
+    // もしimgタグが３枚目以上になった際に以下を実行せよ
     if ($("img").length >= 5) {
-      クラス名cameraのcssにdisplay:noneを適用
+      // クラス名cameraのcssにdisplay:noneを適用
       $('.camera').css({'display':'none'});
     };
     if ($("img").length >= 7) {
