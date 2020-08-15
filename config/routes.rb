@@ -11,6 +11,19 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :credit_cards, only: [:new, :create, :show, :destroy] 
   resources :products do
+    collection do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+    member do
+      get 'get_category_children', defaults: { format: 'json' }
+      get 'get_category_grandchildren', defaults: { format: 'json' }
+    end
+  end
+
+
+
+  resources :products do
     resources :credit_cards do
       member do
         get "buy"
@@ -18,4 +31,5 @@ Rails.application.routes.draw do
       end
     end
   end
+
 end

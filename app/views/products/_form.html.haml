@@ -60,9 +60,10 @@
               .detail__title
                 カテゴリー
               .detail__required-logo
-                必須（←カテゴリー機能で実装予定）
+                必須
             .selector
               .selector__box
+                = f.collection_select :category_id, @parents, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
           .box__item-status__brand
             .box__item-status__brand__box
               .detail
