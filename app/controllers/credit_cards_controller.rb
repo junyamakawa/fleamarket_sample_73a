@@ -101,7 +101,10 @@ class CreditCardsController < ApplicationController
   end
 
   def move_to_new
-    redirect_to new_credit_card_path unless current_user.credit_cards.present?
+    @card = CreditCard.find_by(user_id: current_user.id)
+    if @card.blank?
+      redirect_to action: "new", alert: "クレジットカード登録してください"  
+    end
   end
 
   def move_to_login
