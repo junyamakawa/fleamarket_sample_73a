@@ -72,7 +72,6 @@
       - else
         .btn
           = link_to "ログイン・新規登録すると商品を購入できます", "#", class: "buyBtn" 
-           
     .commentBox
       = form_with(url: "#", local: true, method: :post, class: "form__text") do |form|
         = form.text_area :comment, size: "70x4"
@@ -104,3 +103,4 @@
                   = icon('fa', 'star', class: 'star')
                   0
               %p.productList (税込)
+
