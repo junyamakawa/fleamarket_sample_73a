@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
 
-  # before_action :set_product, except: [:index, :new, :create]
   before_action :set_parents, only: [:new, :create]
   
   def index
@@ -64,8 +63,3 @@ private
   end
 
 end
-
-# def set_product
-#   @product = Product.find(params[:id])
-# end
-
