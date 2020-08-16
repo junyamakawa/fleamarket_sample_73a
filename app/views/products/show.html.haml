@@ -1,27 +1,34 @@
 .productMain
   .showMain
     .itemBox
+      -if user_signed_in? && current_user.id == @product.user_id
+        .itemBox__menu
+          %ul
+            %li
+              =link_to "編集する", "#"
+            %li 
+              =link_to "削除する", "#"
       .itemBox__name
-        %h2 ee
+        %h2 
+          = @product.name
       .itemBox__body
-        = image_tag 'IMG_01.jpg', :size => '560x346', class: 'img'
-        %ul 
-          %li 
-            = image_tag 'IMG_01.jpg', :size => '140x87', class: 'img'
-          %li
-            = image_tag 'IMG_01.jpg', :size => '140x87', class: 'img'
+        - @images.each do |image|
+          = image_tag image.src.url
       .itemBox__price
-        %p.price ￥1,000円 
+        %p.price
+          ¥
+          = @product.price
         .itemBox__price-detail
           %span（税込） 
           %span 送料込み
       .itemBox__detail
-        eee
+        = @product.description
       .table
-        %table{:border => "1", :bordercolor => "#e6e6e6", :width => "620", :height => "426"}
+        %table
           %tr
             %td.td--left 出品者
-            %td.td--right ss
+            %td.td--right
+              = @product.user.nickname
           %tr
             %td.td--left カテゴリー
             %td.td--right 
@@ -32,22 +39,24 @@
           %tr
             %td.td--left ブランド
             %td.td--right 
-          %tr
-            %td.td--left 商品のサイズ
-            %td.td--right 
+              = @product.brand
+                
           %tr
             %td.td--left 商品の状態
-            %td.td--right 新品/未使用
+            %td.td--right
+              = Condition.find(@product.condition_id).name
           %tr
             %td.td--left 配送料の負担
-            %td.td--right 送料込み（出品者負担）
+            %td.td--right
+              = DeliveryCost.find(@product.delivery_cost_id).name
           %tr
             %td.td--left 発送元の地域
             %td.td--right 
-              = link_to "北海道", "#", class:"region"
+              = Region.find(@product.region_id).name
           %tr
             %td.td--left 発送日の目安
-            %td.td--right 1-2日で発送
+            %td.td--right
+              = PreparationDay.find(@product.preparation_day_id).name
       .optionArea
         %ul
           %li.optionalBtn.likeBtn 
@@ -56,7 +65,13 @@
           %li.optionalBtn
             = icon('fa', 'flag', class: 'flag')  
             不適切な商品の通報
-           
+      - if user_signed_in? && current_user.id != @product.user_id
+        .btn
+          = link_to "購入画面へ進む", "#",class: "buyBtn"
+      - elsif user_signed_in? && current_user.id == @product.user_id
+      - else
+        .btn
+          = link_to "ログイン・新規登録すると商品を購入できます", "#", class: "buyBtn" 
     .commentBox
       = form_with(url: "#", local: true, method: :post, class: "form__text") do |form|
         = form.text_area :comment, size: "70x4"
@@ -88,35 +103,4 @@
                   = icon('fa', 'star', class: 'star')
                   0
               %p.productList (税込)
-%p 【画像】
-- @images.each do |image|
-  = image_tag image.src.url
-%br
-%p 【商品名】
-= @product.name
-%br
-%p 【商品の説明】
-= @product.description
-%br
-%p 【ブランド】
-= @product.brand
-%br
-%p 【商品の状態】
-= Condition.find(@product.condition_id).name
-%br
-%p 【発送元】
-= Region.find(@product.region_id).name
-%br
-%p 【発送までの日数】
-= PreparationDay.find(@product.preparation_day_id).name
-%br
-%p 【値段】
-= @product.price
-%br
-%p 【出品者】
-= User.find(@product.user_id).nickname
-%br
-%p 【出品中・売却済み】
-= @product.status
-%br
 

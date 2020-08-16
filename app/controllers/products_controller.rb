@@ -22,6 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
     @images = Image.where(product_id: @product[:id])
   end
 
@@ -33,15 +34,13 @@ class ProductsController < ApplicationController
 
   def destroy
   end
-end
 
-private
+  private
+  def product_params
+    params.require(:product).permit(:name, :description, :brand, :condition_id, :delivery_cost_id, :region_id, :preparation_day_id, :price, images_attributes: [:src], categories_attributes: [:category_name]).merge(user_id: current_user.id)  
+  end
 
-def product_params
-  params.require(:product).permit(:name, :description, :brand, :condition_id, :delivery_cost_id, :region_id, :preparation_day_id, :price, images_attributes: [:src], categories_attributes: [:category_name]).merge(user_id: current_user.id)  
+  def set_product
+    @product = Product.find(params[:id])
+  end
 end
-
-def set_product
-  @product = Product.find(params[:id])
-end
-  
