@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   # before_action :move_to_login, only: [:new]
 
-  before_action :set_product, except: [:index, :new, :create]
+  # before_action :set_product, except: [:index, :new, :create]
   
   def index
     @products = Product.where(status: 0)
@@ -40,7 +40,7 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:name, :description, :brand, :condition_id, :delivery_cost_id, :region_id, :preparation_day_id, :price, images_attributes: [:src], categories_attributes: [:category_name]).merge(user_id: current_user.id)  
   end
 
-  def set_product
-    @product = Product.find(params[:id])
-  end
+  # def set_product
+  #   @product = Product.find(params[:id])
+  # end
 end
