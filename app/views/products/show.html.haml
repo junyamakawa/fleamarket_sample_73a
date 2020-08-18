@@ -7,7 +7,7 @@
             %li
               =link_to "編集する", "#"
             %li 
-              =link_to "削除する", "#"
+              =link_to "削除する", "#", method: :delete
       .itemBox__name
         %h2 
           = @product.name

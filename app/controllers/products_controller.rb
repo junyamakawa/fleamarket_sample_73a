@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   # before_action :move_to_login, only: [:new]
 
-  before_action :set_product, except: [:index, :new, :create]
+  before_action :set_product, only: [:show, :destroy]
   
   def index
     @products = Product.where(status: 0)
@@ -22,7 +22,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id])
     @images = Image.where(product_id: @product[:id])
     @image_first = @images.first
   end
@@ -34,6 +33,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+      if @product.user_id == current_user.id && @product.destroy
+        redirect_to products_path, method: :get,  notice: '商品を削除しました'
+      end
   end
 
   private
