@@ -33,6 +33,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    product = Product.find(params[:id])
+      if product.user_id == current_user.id
+        product.destroy
+        redirect_to "/products", method: :get,  notice: '商品を削除しました'
+      end
   end
 
   private
