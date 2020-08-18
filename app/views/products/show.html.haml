@@ -17,7 +17,7 @@
         
       .itemBox__body
         - @images.each do |image|
-          = image_tag image.src.url, height: '100px', width: '100px'
+          = image_tag image.src.url, height: '100px', width: '100px', class: "itemBox__body__images"
       .itemBox__price
         %p.price
           ¥
