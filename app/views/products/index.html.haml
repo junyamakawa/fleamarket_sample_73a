@@ -1,3 +1,18 @@
-- @products.each do |p|
-  = link_to product_path(p[:id]) do 
-    = p.name
+.productlists
+  - @products.each do |product|
+    .productlists__productlist
+      =link_to product_path(product.id) do
+        .productlist--img
+          - first_image = product.images.first
+          = image_tag first_image.src.url, :size =>‘220’, class: “img”
+        .productlist--body
+          .productlist--body__name
+            =product.name
+          .productlist--body__details
+            %ul
+              %li=product.price
+              %li 円
+              %li.fav
+                = icon(‘fa’, ‘star’, class: ‘star’)
+                0
+            %p (税込)
