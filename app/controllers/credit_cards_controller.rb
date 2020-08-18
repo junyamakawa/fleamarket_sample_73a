@@ -63,7 +63,7 @@ class CreditCardsController < ApplicationController
 
 
     if user_signed_in?
-      if @product.status == "sold"
+      if @product.status == "売却済み"
         redirect_to root_path,alert: "売り切れています"
       else
       @user = current_user
@@ -81,7 +81,7 @@ class CreditCardsController < ApplicationController
     @product = Product.find(params[:product_id])
 
     @product.with_lock do
-      if @product.status == "sold"
+      if @product.status == "売却済み"
         redirect_to root_path, alert: "売り切れています。"
       else
         @card = CreditCard.find_by(user_id: current_user.id)
