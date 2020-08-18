@@ -23,6 +23,7 @@ class ProductsController < ApplicationController
 
   def show
     @images = Image.where(product_id: @product[:id])
+    @image_first = @images.first
   end
 
   def edit

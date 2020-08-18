@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @new_products = Product.last(4)
+    @products = Product.where(status: 0)
+    @new_products = @products.last(4)
   end
 
   def show

@@ -11,9 +11,13 @@
       .itemBox__name
         %h2 
           = @product.name
+
+      .itemBox__first-image
+        = image_tag @image_first.src.url,  height: '500px', width: '700px'
+        
       .itemBox__body
         - @images.each do |image|
-          = image_tag image.src.url
+          = image_tag image.src.url, height: '100px', width: '100px', class: "itemBox__body__images"
       .itemBox__price
         %p.price
           ¥
