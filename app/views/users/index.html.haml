@@ -73,7 +73,7 @@
           新規投稿商品
         
     .pickupcategory__productbox__productlists
-      - @products.each do |product|
+      - @new_products.each do |product|
         .pickupcategory__productbox__productlists__productlist
           =link_to product_path(product.id) do
             .productlist--img
