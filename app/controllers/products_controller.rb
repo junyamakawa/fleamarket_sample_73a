@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   # before_action :move_to_login, only: [:new]
 
-  before_action :set_product, only: [:show, :destroy]
+  before_action :set_product, only: [:show, :destroy, :edit]
   
   def index
     @products = Product.where(status: 0)
