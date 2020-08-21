@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   # before_action :move_to_login, only: [:new]
 
-  before_action :set_product, only: [:show, :destroy, :edit]
+  before_action :set_product, only: [:show, :destroy, :edit, :update]
   
   def index
     @products = Product.where(status: 0)
@@ -27,12 +27,30 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @images = Image.where(product_id: @product[:id])
+    @image_first = @images.first
   end
 
   def update
-    product = Product.find(params[:id])
-    product.update(product_params)
-    redirect_to product_path(product.id)
+    if product_params[:images_attributes].nil?
+      flash.now[:alert] = '更新できませんでした。画像を1枚以上入れてください。'
+      render :edit
+    else
+      exit_ids = []
+      product_params[:images_attributes].each do |a,b|
+        exit_ids << product_params[:images_attributes].dig(:"#{a}",:id).to_i
+      end
+      ids = Image.where(product_id: params[:id]).map{|image| image.id }
+      delete__db = ids - exit_ids
+      Image.where(id:delete__db).destroy_all
+      @product.touch
+      if @product.update(product_params)
+        redirect_to product_path(product.id)
+      else
+        flash.now[:alert] = '更新できませんでした'
+        render :edit
+      end
+    end
   end
 
   def destroy
