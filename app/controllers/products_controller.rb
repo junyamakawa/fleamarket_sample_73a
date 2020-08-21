@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   # before_action :move_to_login, only: [:new]
 
   before_action :set_product, only: [:show, :destroy, :edit, :update]
+  before_action :move_to_index, only: [:edit]
   
   def index
     @products = Product.where(status: 0)
@@ -66,5 +67,9 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in? || user_signed_in? && @product.user_id == current_user.id
   end
 end
