@@ -24,6 +24,8 @@ class ProductsController < ApplicationController
   def show
     @images = Image.where(product_id: @product[:id])
     @image_first = @images.first
+    @comment = Comment.new
+    @commentALL = @product.comments
   end
 
   def edit
