@@ -60,7 +60,7 @@ class CreditCardsController < ApplicationController
 
   def buy
     @product = Product.find(params[:product_id])
-    @images = Image.where(product_id: @product[:id])
+    @images = @product.images
     @image_first = @images.first
 
 
