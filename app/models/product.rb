@@ -2,12 +2,16 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_one :order
   has_many :images, dependent: :destroy
+  has_many :comments, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :user
   belongs_to_active_hash :condition
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :region
   belongs_to_active_hash :delivery_cost
+  belongs_to :seller, class_name: "User", optional: true,foreign_key: "seller_id"
+  belongs_to :buyer, class_name: "User", optional: true,foreign_key: "buyer_id"
+  belongs_to :auction, class_name: "User", optional: true,foreign_key: "auction_id"
   enum status: {
     出品中: 0,
     売却済み: 1
