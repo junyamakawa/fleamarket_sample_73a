@@ -9,7 +9,7 @@
   width: 510px;
   margin: 0 auto;
 
-  .buy__title{
+  &__title{
     height: 28px;
     text-align: center;
     font-weight: bold;
@@ -17,7 +17,7 @@
     margin-bottom: 15px;
     border-top: 1px solid rgb(240, 240, 240);
   }
-  .buy__product{
+  &__product{
     display: flex;
     justify-content: center;
     height: 30%;
@@ -25,28 +25,28 @@
     text-align: center;
     padding: 16px 24px;
     border-top: 1px solid rgb(240, 240, 240);
-    .buy__product__name{
+    &__name{
       margin-left: 15px;
     }
   }
-  .buy__payment{
+  &__payment{
     height: 20%;
     text-align: center;
     padding: 16px 24px;
     font-size: 20px;
     border-top: 1px solid rgb(240, 240, 240);
   }
-  .buy__confirmation{
+  &__confirmation{
     height: 20%;
     text-align: center;
     padding: 16px 24px;
     border-top: 1px solid rgb(240, 240, 240);
-    .buy__confirmation__credit_cards{
+    &__credit_cards{
       font-size: 16px;
       margin-bottom: 15px;
 
     }
-    .buy__confirmation__btn{
+    &__btn{
       background-color: $thema_color_blue;
       line-height: 48px;
       border: 1px solid $thema_color_blue;
