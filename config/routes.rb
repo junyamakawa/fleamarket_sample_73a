@@ -18,4 +18,9 @@ Rails.application.routes.draw do
       end
     end
   end
+  resources :comments, only: [:create, :update, :destroy] do
+    member do
+      get 'restore'
+    end
+  end
 end
