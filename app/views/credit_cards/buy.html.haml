@@ -14,6 +14,7 @@
   .buy__confirmation
     .buy__confirmation__credit_cards
       = "クレジットカード番号：" + "#{" **** **** **** " + @customer_card.last4}"
-    .buy__confirmation__btn
-      購入する
+    = link_to pay_product_credit_card_path(@product), method: :post do
+      .buy__confirmation__btn 購入する
+
  
