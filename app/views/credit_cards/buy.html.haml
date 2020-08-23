@@ -1,6 +1,19 @@
-.payment
-  支払い金額   
-.amount
-  = "#{@product.price}" + "円"
-.confirmation
-  = link_to "登録クレジットカードで購入する", pay_product_credit_card_path(@product), method: :post
+.buy
+  .buy__title
+    購入内容の確認
+  .buy__product
+    .buy__product__image
+      = image_tag @image_first.src.url
+
+    .buy__product__name
+      = "商品名：" + "#{@product.name}"
+
+  .buy__payment
+    = "支払い金額：" + "#{@product.price}" + "円"
+
+  .buy__confirmation
+    .buy__confirmation__credit_cards
+      = "クレジットカード番号：" + "#{" **** **** **** " + @customer_card.last4}"
+    .buy__confirmation__btn
+      購入する
+ 
