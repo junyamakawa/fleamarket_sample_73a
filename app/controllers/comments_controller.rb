@@ -1,8 +1,16 @@
 class CommentsController < ApplicationController
-  @comment = Comment.new(comment_params)
-  @seller_of_product = @comment.product.seller 
-  @comment.save
-  redirect_to product_path(@comment.product.id)
+  def create
+    @comment = Comment.new(comment_params)
+    @seller_of_product = @comment.product.seller 
+    if @comment.save
+      redirect_to product_path(@comment.product.id), notice: 'コメントが送信されました'
+    else
+      @comments = @comments.includes(:user)
+      flash.now[:alert] = 'メッセージを入力してください'
+      render :index
+    end
+  end
+
 
   private
   def comment_params
