@@ -77,14 +77,23 @@
         .btn
           = link_to "ログイン・新規登録すると商品を購入できます", "#", class: "buyBtn" 
     .commentBox
-      = form_with(url: "#", local: true, method: :post, class: "form__text") do |form|
+      .comments
+        %h4 ＜コメント一覧＞
+        - if @comments
+          - @comments.each do |comment|
+            %p
+              %strong
+                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                = comment.comment
+      -# - binding.pry
+      = form_with(model: [@product, @comment], local: true, method: :post, class: "form__text") do |form|
         = form.text_area :comment, size: "70x4"
         .notice 
           相手のことを考え丁寧なコメントを心がけましょう。
           %br 不快な言葉遣いなどは、利用制限や退会処分となることがあります。
         = button_tag type: "submit", class: "commentBtn" do 
           %i.fas.fa-comment 
-          = "コメントする"
+          = "コメントする" 
     
     .links
       .links__back
