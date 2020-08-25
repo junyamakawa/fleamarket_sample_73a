@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
       Image.where(id:delete__db).destroy_all
       @product.touch
       if @product.update(product_params)
-        redirect_to product_path(product.id)
+        redirect_to product_path(@product.id)
       else
         flash.now[:alert] = '更新できませんでした'
         render :edit
@@ -62,7 +62,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :description, :brand, :condition_id, :delivery_cost_id, :region_id, :preparation_day_id, :price, images_attributes: [:src], categories_attributes: [:category_name]).merge(user_id: current_user.id)  
+    params.require(:product).permit(:name, :description, :brand, :condition_id, :delivery_cost_id, :region_id, :preparation_day_id, :price, images_attributes: [:src, :_destroy, :id], categories_attributes: [:category_name]).merge(user_id: current_user.id)  
   end
 
   def set_product
