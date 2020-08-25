@@ -26,7 +26,7 @@
                 - if @product.persisted?
                   .js-file_group{"data-index": "#{@product.images.count}"}
                     = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-                    .js-remove 削除
+                    .js-remove
               = icon('fas', 'camera', class: 'camera')
               .box__photobox__photoupload__comment
         %hr.divide-border
