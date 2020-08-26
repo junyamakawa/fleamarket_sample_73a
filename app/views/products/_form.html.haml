@@ -60,9 +60,11 @@
               .detail__title
                 カテゴリー
               .detail__required-logo
-                必須（←カテゴリー機能で実装予定）
+                必須
             .selector
-              .selector__box
+              .selector__box.childCategory
+                -# Category.where(name: nil)
+                = f.collection_select :category_id, Category.roots, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
           .box__item-status__brand
             .box__item-status__brand__box
               .detail
