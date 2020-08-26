@@ -172,11 +172,22 @@
           margin-top: 10px;
           margin-bottom: 10px;
           &__username {
+            display: flex;
             a {
               font-weight: bold;
               position: relative;
               color: #333;
               text-decoration: none;
+              justify-content: flex-start;
+            }
+            .seller_display {
+              background-color: #eb5a46;
+              border-radius: 5px;
+              padding: 3px;
+              justify-content: flex-start;
+              margin-left: 10px;
+              font-size: 14px;
+              color: $white;
             }
           }
           &__commentbox {
@@ -187,6 +198,11 @@
             line-height: 1.5;
             word-break: break-all;
             margin-top: 10px;
+            .comment_create_at {
+              float: right;
+              font-size: 12px;
+              margin-top: 20px;
+            }
           }
           &__commentbox:after {
             position: absolute;
