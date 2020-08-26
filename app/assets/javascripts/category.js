@@ -20,7 +20,6 @@ $(document).on('turbolinks:load', function(){
 
   $('#category_form').on('change', function(){
     var parentCategory = $('#category_form').val();
-    console.log('change');
     if(parentCategory !== "") {
       $.ajax ({
         url: '/products/get_category_children',
@@ -29,8 +28,6 @@ $(document).on('turbolinks:load', function(){
         dataType: 'json'
       })
       .done(function(data){
-        console.log('おめでとう！');
-        console.log(data);
         $('.child_category_id').remove();
         $('.gc_category_id').remove();
         let child_select = build_childSelect()
@@ -53,7 +50,6 @@ $(document).on('turbolinks:load', function(){
 })
 
 $(document).on('change', '.child_category_id', function () {
-  console.log('やったねー！');
   let childValue = $('.child_category_id').val();
 
   function build_gcSelect(){
@@ -72,8 +68,6 @@ $(document).on('change', '.child_category_id', function () {
     return option_html;
   }
 
-  console.log(childValue);
-
   if(childValue !== "") {
     $.ajax ({
       url: '/products/get_category_grandchildren',
@@ -82,7 +76,6 @@ $(document).on('change', '.child_category_id', function () {
       dataType: 'json'
     })
     .done(function(gc_data){
-      console.log(gc_data);
       let grand_child_select = build_gcSelect
       $('.gc_category_id').remove();
       $(".childCategory").append(grand_child_select);
