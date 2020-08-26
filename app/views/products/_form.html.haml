@@ -16,7 +16,9 @@
                 #previews
                   - if @product.persisted?
                     - @product.images.each_with_index do |image, i|
-                      = image_tag image.src.url, data: { index: i }, width: "118px;", height: '118px;'
+                      .image-box__content
+                        = image_tag image.src.url, data: { index: i }, width: "118px;", height: '118px;'
+                        .js-remove 削除
                 = f.fields_for :images do |image|
                   .js-file_group{"data-index": "#{image.index}"}
                     = image.file_field :src, accept: "image/*", class: "js-file", data: {index: image.index}
@@ -26,7 +28,6 @@
                 - if @product.persisted?
                   .js-file_group{"data-index": "#{@product.images.count}"}
                     = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-                    .js-remove
               = icon('fas', 'camera', class: 'camera')
               .box__photobox__photoupload__comment
         %hr.divide-border
