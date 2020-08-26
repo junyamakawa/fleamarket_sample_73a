@@ -145,6 +145,61 @@
       }
     }
     .commentBox {
+      .comments {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+        padding-inline-end: 40px;
+        .commentlist {
+          background-color: #3ccace;
+          line-height: 36px;
+          border: 1px solid #3ccace;
+          color: fff;
+          width: 60%;
+          border-radius: 50px;
+          margin: 10px auto;
+          display: block;
+          h4 {
+            color: $white;
+            font-size: 18px;
+            text-align: center;
+          }
+        }
+        &__comment {
+          margin-top: 10px;
+          margin-bottom: 10px;
+          &__username {
+            a {
+              font-weight: bold;
+              position: relative;
+              color: #333;
+              text-decoration: none;
+            }
+          }
+          &__commentbox {
+            position: relative;
+            padding: 16px;
+            background: #eef0f4;
+            border-radius: 15px;
+            line-height: 1.5;
+            word-break: break-all;
+            margin-top: 10px;
+          }
+          &__commentbox:after {
+            position: absolute;
+            content: '';
+            bottom: 100%;
+            left: 20px;
+            border: 10px solid transparent;
+            border-bottom: 10px solid #eef0f4;
+            width: 0;
+            height: 0;
+          }
+        }
+      }
       margin: 15px auto;
       background-color: $white;
       .form__text{

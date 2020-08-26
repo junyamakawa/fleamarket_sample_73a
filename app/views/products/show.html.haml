@@ -78,12 +78,14 @@
           = link_to "ログイン・新規登録すると商品を購入できます", "#", class: "buyBtn" 
     .commentBox
       .comments
-        %h4 ＜コメント一覧＞
+        .commentlist
+          %h4 コメント一覧
         - if @comments
           - @comments.each do |comment|
-            %p
-              %strong
-                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+            .comments__comment
+              .comments__comment__username
+                = link_to comment.user.nickname, "/users/#{comment.user_id},class="""
+              .comments__comment__commentbox
                 = comment.comment
       -# - binding.pry
       = form_with(model: [@product, @comment], local: true, method: :post, class: "form__text") do |form|
