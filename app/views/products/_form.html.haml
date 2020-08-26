@@ -15,9 +15,9 @@
               #image-box
                 #previews
                   - if @product.persisted?
-                    - @product.images.each_with_index do |image, i|
-                      .image-box__content
-                        = image_tag image.src.url, data: { index: i }, width: "118px;", height: '118px;'
+                    - @product.images.each_with_index do |image,i|
+                      .image-box__content{data: { index: i }}
+                        = image_tag image.src.url, width: "118px;", height: '118px;'
                         .js-remove 削除
                 = f.fields_for :images do |image|
                   .js-file_group{"data-index": "#{image.index}"}
