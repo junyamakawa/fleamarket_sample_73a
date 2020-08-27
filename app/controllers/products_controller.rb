@@ -60,16 +60,40 @@ class ProductsController < ApplicationController
       end
   end
 
+  def get_category_children
+    respond_to do |format| 
+      format.html
+      format.json do
+        @children = Category.find(params[:parent_id]).children
+      end
+    end
+  end
+
+  def get_category_grandchildren
+    respond_to do |format|
+      format.html 
+      format.json do
+        @grandchildren = Category.find("#{params[:child_id]}").children
+      end
+    end
+  end
+
   private
+
   def product_params
-    params.require(:product).permit(:name, :description, :brand, :condition_id, :delivery_cost_id, :region_id, :preparation_day_id, :price, images_attributes: [:src, :_destroy, :id], categories_attributes: [:category_name]).merge(user_id: current_user.id)  
+    params.require(:product).permit(:name, :description, :brand, :condition_id, :category_id, :delivery_cost_id, :region_id, :preparation_day_id, :price, images_attributes: [:src, :_destroy, :id], categories_attributes: [:category_name]).merge(user_id: current_user.id)
   end
 
   def set_product
     @product = Product.find(params[:id])
   end
 
+  def set_parents 
+    @parents = Category.where(ancestry: nil)
+  end
+
   def move_to_index
     redirect_to action: :index unless user_signed_in? || user_signed_in? && @product.user_id == current_user.id
   end
 end
+

@@ -60,6 +60,8 @@ class CreditCardsController < ApplicationController
 
   def buy
     @product = Product.find(params[:product_id])
+    @images = @product.images
+    @image_first = @images.first
 
 
     if user_signed_in?
