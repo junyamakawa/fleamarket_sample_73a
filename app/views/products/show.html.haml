@@ -85,8 +85,6 @@
             .comments__comment
               .comments__comment__username
                 = comment.user.nickname
-                -# = binding.pry
-            
                 - if comment.user == comment.product.user
                   .seller_display
                     出品者
@@ -94,7 +92,6 @@
                 = comment.comment
                 .comment_create_at
                   = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
-      -# - binding.pry
       - if user_signed_in?
         = form_with(model: [@product, @comment], local: true, method: :post, id: "new_comment") do |form|
           = form.text_area :comment, size: "70x4", class: "textbox"
@@ -107,7 +104,6 @@
       - else
         .announceBox
           = link_to "ログインする事でコメント機能が利用できます。", new_user_session_path, class: "announceBox__comment"
-          
     .links
       .links__back
         = link_to "< 前の商品", "#", class:"goToLink"

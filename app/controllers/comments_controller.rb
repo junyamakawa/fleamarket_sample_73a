@@ -6,13 +6,6 @@ class CommentsController < ApplicationController
       format.html { redirect_to product_path(params[:product_id]) }
       format.json
     end
-    # if @comment.save
-    #   redirect_to product_path(@comment.product.id), notice: 'コメントが送信されました'
-    # else
-    #   @comments = @comments.includes(:user)
-    #   flash.now[:alert] = 'メッセージを入力してください'
-    #   render :index
-    # end
   end
 
 
