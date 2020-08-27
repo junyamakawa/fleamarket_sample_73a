@@ -22,4 +22,5 @@ class Product < ApplicationRecord
   validates :preparation_day_id, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :user_id, presence: true
+  validates :category_id, presence: true
 end
