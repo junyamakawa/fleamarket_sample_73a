@@ -216,16 +216,15 @@
           }
         }
       }
-      margin: 15px auto;
-      background-color: $white;
-      .form__text{
+
+      #new_comment{
         text-align: center;
       }
       .notice {
         margin: 10px auto;
         font-size: 14px;
       }
-      .commentBtn {
+      .form__submit {
         background-color: $thema_color_blue;
         line-height: 48px;
         border: 1px solid $thema_color_blue;
@@ -237,6 +236,27 @@
         display: block;
       }
     }
+    .announceBox {
+      background-color: red;
+      width: 95%;
+      height: 50px;
+      margin: 15px auto;
+      line-height: 50px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      &__comment {
+        font-size: 18px;
+        color: #fff;
+        text-decoration: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+    }
+    // }
     .links {
       width: 700px;
       height: 24px;

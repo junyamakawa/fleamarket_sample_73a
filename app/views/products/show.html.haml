@@ -84,8 +84,9 @@
           - @comments.each do |comment|
             .comments__comment
               .comments__comment__username
-                = link_to comment.user.nickname, "/users/#{comment.user_id}"
+                = comment.user.nickname
                 -# = binding.pry
+            
                 - if comment.user == comment.product.user
                   .seller_display
                     出品者
@@ -94,15 +95,19 @@
                 .comment_create_at
                   = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
       -# - binding.pry
-      = form_with(model: [@product, @comment], local: true, method: :post, class: "form__text") do |form|
-        = form.text_area :comment, size: "70x4"
-        .notice 
-          相手のことを考え丁寧なコメントを心がけましょう。
-          %br 不快な言葉遣いなどは、利用制限や退会処分となることがあります。
-        = button_tag type: "submit", class: "commentBtn" do 
-          %i.fas.fa-comment 
-          = "コメントする" 
-    
+      - if user_signed_in?
+        = form_with(model: [@product, @comment], local: true, method: :post, id: "new_comment") do |form|
+          = form.text_area :comment, size: "70x4", class: "textbox"
+          .notice 
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br 不快な言葉遣いなどは、利用制限や退会処分となることがあります。
+          = button_tag type: "submit", class: "form__submit" do 
+            %i.fas.fa-comment 
+            = "コメントする" 
+      - else
+        .announceBox
+          = link_to "ログインする事でコメント機能が利用できます。", new_user_session_path, class: "announceBox__comment"
+          
     .links
       .links__back
         = link_to "< 前の商品", "#", class:"goToLink"
