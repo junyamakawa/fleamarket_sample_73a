@@ -16,6 +16,7 @@ class Product < ApplicationRecord
   validates :images, presence: true
   validates :name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
+  validates :category_id, presence: true
   validates :condition_id, presence: true
   validates :delivery_cost_id, presence: true
   validates :region_id, presence: true
