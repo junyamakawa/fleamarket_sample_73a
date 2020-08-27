@@ -65,4 +65,8 @@ class ProductsController < ApplicationController
   def set_parents 
     @parents = Category.where(ancestry: nil)
   end
+
+  def set_product
+    @product = Product.find(params[:id])
+  end
 end
