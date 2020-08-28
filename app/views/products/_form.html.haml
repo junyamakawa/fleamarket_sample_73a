@@ -63,9 +63,14 @@
               .detail__required-logo
                 必須
             .selector
-              .selector__box.childCategory
-                -# Category.where(name: nil)
-                = f.collection_select :category_id, Category.roots, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
+              -if @product.category_id.nil?
+                .selector__box.childCategory
+                  = f.collection_select :category_id, Category.roots, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
+              -else
+                .selector__box.childCategory
+                  = f.collection_select :category_id, Category.roots, :id, :name, { include_blank: "---", selected:@parent_array }, id: "category_form"
+                  = f.collection_select :category_id, @category_children_array, :id, :name, { include_blank: "---", selected:@child_array }, class: "child_category_id"
+                  = f.collection_select :category_id, @category_grandchildren_array, :id, :name, { include_blank: "---", selected:@grandchild_array }, class: "gc_category_id"
           .box__item-status__brand
             .box__item-status__brand__box
               .detail
