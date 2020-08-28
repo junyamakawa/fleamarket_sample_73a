@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
 
   before_action :set_product, only: [:show, :destroy, :edit, :update]
   before_action :move_to_index, only: [:edit]
+  before_action :set_image, only: [:show, :edit]
   
   def index
     @products = Product.where(status: 0)
@@ -23,13 +24,24 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @images = Image.where(product_id: @product[:id])
-    @image_first = @images.first
   end
 
   def edit
-    @images = Image.where(product_id: @product[:id])
-    @image_first = @images.first
+    @category_id = @product.category_id
+    @category_parent = Category.find(@category_id).parent.parent
+    @parent_array = []
+    @parent_array << @category_parent.name
+    @parent_array << @category_parent.id
+    @category_child = Category.find(@category_id).parent
+    @child_array = []
+    @child_array << @category_child.name
+    @child_array << @category_child.id
+    @category_grandchild = Category.find(@category_id)
+    @grandchild_array = []
+    @grandchild_array << @category_grandchild.name
+    @grandchild_array << @category_grandchild.id
+    @category_children_array = Category.where(ancestry: @category_child.ancestry)
+    @category_grandchildren_array = Category.where(ancestry: @category_grandchild.ancestry)
   end
 
   def update
@@ -90,6 +102,11 @@ class ProductsController < ApplicationController
 
   def set_parents 
     @parents = Category.where(ancestry: nil)
+  end
+
+  def set_image
+    @images = Image.where(product_id: @product[:id])
+    @image_first = @images.first
   end
 
   def move_to_index
