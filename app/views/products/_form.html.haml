@@ -15,8 +15,10 @@
               #image-box
                 #previews
                   - if @product.persisted?
-                    - @product.images.each_with_index do |image, i|
-                      = image_tag image.src.url, data: { index: i }, width: "118px;", height: '118px;'
+                    - @product.images.each_with_index do |image,i|
+                      .image-box__content{data: { index: i }}
+                        = image_tag image.src.url, width: "118px;", height: '118px;'
+                        .js-remove 削除
                 = f.fields_for :images do |image|
                   .js-file_group{"data-index": "#{image.index}"}
                     = image.file_field :src, accept: "image/*", class: "js-file", data: {index: image.index}
@@ -26,7 +28,6 @@
                 - if @product.persisted?
                   .js-file_group{"data-index": "#{@product.images.count}"}
                     = file_field_tag :src, name: "product[images_attributes][#{@product.images.count}][src]", class: 'js-file'
-                    .js-remove 削除
               = icon('fas', 'camera', class: 'camera')
               .box__photobox__photoupload__comment
         %hr.divide-border
@@ -62,9 +63,14 @@
               .detail__required-logo
                 必須
             .selector
-              .selector__box.childCategory
-                -# Category.where(name: nil)
-                = f.collection_select :category_id, Category.roots, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
+              -if @product.category_id.nil?
+                .selector__box.childCategory
+                  = f.collection_select :category_id, Category.roots, :id, :name, { include_blank: "---", selected:"" }, id: "category_form"
+              -else
+                .selector__box.childCategory
+                  = f.collection_select :category_id, Category.roots, :id, :name, { include_blank: "---", selected:@parent_array }, id: "category_form"
+                  = f.collection_select :category_id, @category_children_array, :id, :name, { include_blank: "---", selected:@child_array }, class: "child_category_id"
+                  = f.collection_select :category_id, @category_grandchildren_array, :id, :name, { include_blank: "---", selected:@grandchild_array }, class: "gc_category_id"
           .box__item-status__brand
             .box__item-status__brand__box
               .detail

@@ -2,9 +2,12 @@ class Product < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   has_one :order
   has_many :images, dependent: :destroy
+  belongs_to :category
   accepts_nested_attributes_for :images, allow_destroy: true
   has_many :comments, dependent: :destroy
   belongs_to :user
+  has_many :product_categories, dependent: :destroy
+  has_many :categories, through: :product_categories
   belongs_to_active_hash :condition
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :region
@@ -26,4 +29,5 @@ class Product < ApplicationRecord
   validates :preparation_day_id, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999}
   validates :user_id, presence: true
+  validates :category_id, presence: true
 end

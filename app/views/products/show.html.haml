@@ -5,7 +5,7 @@
         .itemBox__menu
           %ul
             %li
-              =link_to "編集する", "#"
+              =link_to "編集する", edit_product_path(@product.id)
             %li 
               =link_to "削除する", "#", method: :delete
       .itemBox__name
@@ -37,9 +37,9 @@
             %td.td--left カテゴリー
             %td.td--right 
               %ul
-                %li= link_to "ベビー・キッズ","#", class: "category" 
-                %li= link_to "ベビー服（男の子用）〜95cm", "#", class: "category" 
-                %li= link_to "アウター", "#", class: "category" 
+                %li= link_to @product.category.root.name, "#", class: "category"
+                %li= link_to @product.category.parent.name, "#", class: "category"
+                %li= link_to @product.category.name, "#", class: "category"
           %tr
             %td.td--left ブランド
             %td.td--right 
