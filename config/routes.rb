@@ -20,11 +20,13 @@ Rails.application.routes.draw do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
     end
-  end
-  resources :credit_cards do
-    member do
-      get "buy"
-      post "pay"
+
+  
+    resources :credit_cards do
+      member do
+        get "buy"
+        post "pay"
+      end
     end
   end
 end
