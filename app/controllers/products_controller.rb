@@ -24,8 +24,6 @@ class ProductsController < ApplicationController
   def show
     @images = Image.where(product_id: @product[:id])
     @image_first = @images.first
-    # @category = Category.find_by(id: @product.category_id)
-    
   end
 
   def edit
