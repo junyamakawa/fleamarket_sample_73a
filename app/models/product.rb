@@ -4,6 +4,8 @@ class Product < ApplicationRecord
   has_many :images, dependent: :destroy
   accepts_nested_attributes_for :images, allow_destroy: true
   belongs_to :user
+  has_many :product_categories, dependent: :destroy
+  has_many :categories, through: :product_categories
   belongs_to_active_hash :condition
   belongs_to_active_hash :preparation_day
   belongs_to_active_hash :region
