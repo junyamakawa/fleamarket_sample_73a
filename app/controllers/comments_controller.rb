@@ -1,13 +1,20 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.create(comment_params)
-    @product = Product.find( params[:product_id])
-    respond_to do |format|
-      format.html { redirect_to product_path(params[:product_id]) }
-      format.json
+    @comment = Comment.new(comment_params)
+    @product = Product.find(params[:product_id])
+    if @comment.save
+      respond_to do |format|
+        format.html { redirect_to product_path(params[:product_id]) }
+        format.json
+      end
+    else
+      @comments = @product.comments.includes(:user)
+      respond_to do |format|
+        format.html { render :index }
+        format.json
+      end
     end
   end
-
 
   private
   def comment_params

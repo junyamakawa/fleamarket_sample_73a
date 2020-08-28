@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: :show
   resources :credit_cards, only: [:new, :create, :show, :destroy] 
   resources :products do
-    
+    resources :comments, only: :create
     collection do
       get 'get_category_children', defaults: { format: 'json' }
       get 'get_category_grandchildren', defaults: { format: 'json' }
@@ -26,6 +26,5 @@ Rails.application.routes.draw do
       get "buy"
       post "pay"
     end
-    resources :comments, only: :create
   end
 end
