@@ -5,7 +5,7 @@
         .itemBox__menu
           %ul
             %li
-              =link_to "編集する", "#"
+              =link_to "編集する", edit_product_path(@product.id)
             %li 
               =link_to "削除する", "#", method: :delete
       .itemBox__name
