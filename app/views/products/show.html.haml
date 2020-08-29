@@ -71,21 +71,39 @@
             不適切な商品の通報
       - if user_signed_in? && current_user.id != @product.user_id
         .btn
-          = link_to "購入画面へ進む", buy_product_credit_card_path(@product), class: "buyBtn"
+          = link_to "購入画面へ進む", buy_credit_card_path(@product), class: "buyBtn"
       - elsif user_signed_in? && current_user.id == @product.user_id
       - else
         .btn
           = link_to "ログイン・新規登録すると商品を購入できます", "#", class: "buyBtn" 
     .commentBox
-      = form_with(url: "#", local: true, method: :post, class: "form__text") do |form|
-        = form.text_area :comment, size: "70x4"
-        .notice 
-          相手のことを考え丁寧なコメントを心がけましょう。
-          %br 不快な言葉遣いなどは、利用制限や退会処分となることがあります。
-        = button_tag type: "submit", class: "commentBtn" do 
-          %i.fas.fa-comment 
-          = "コメントする"
-    
+      .comments
+        .commentlist
+          %h4 コメント一覧
+        - if @comments
+          - @comments.each do |comment|
+            .comments__comment
+              .comments__comment__username
+                = comment.user.nickname
+                - if comment.user == comment.product.user
+                  .seller_display
+                    出品者
+              .comments__comment__commentbox
+                = comment.comment
+                .comment_create_at
+                  = comment.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      - if user_signed_in?
+        = form_with(model: [@product, @comment], local: true, method: :post, id: "new_comment") do |form|
+          = form.text_area :comment, size: "70x4", class: "textbox"
+          .notice 
+            相手のことを考え丁寧なコメントを心がけましょう。
+            %br 不快な言葉遣いなどは、利用制限や退会処分となることがあります。
+          = button_tag type: "submit", class: "form__submit" do 
+            %i.fas.fa-comment 
+            = "コメントする" 
+      - else
+        .announceBox
+          = link_to "ログインする事でコメント機能が利用できます。", new_user_session_path, class: "announceBox__comment"
     .links
       .links__back
         = link_to "< 前の商品", "#", class:"goToLink"

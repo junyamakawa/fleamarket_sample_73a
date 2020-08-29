@@ -2,8 +2,6 @@
   box-sizing: border-box;
 }
 
-
-
 .productMain {
   background-color: #f8f8f8;
   height: 100%;
@@ -145,16 +143,86 @@
       }
     }
     .commentBox {
-      margin: 15px auto;
-      background-color: $white;
-      .form__text{
+      .comments {
+        display: block;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+        padding-inline-end: 40px;
+        .commentlist {
+          background-color: #3ccace;
+          line-height: 36px;
+          border: 1px solid #3ccace;
+          color: fff;
+          width: 60%;
+          border-radius: 50px;
+          margin: 10px auto;
+          display: block;
+          h4 {
+            color: $white;
+            font-size: 18px;
+            text-align: center;
+          }
+        }
+        &__comment {
+          margin-top: 10px;
+          margin-bottom: 10px;
+          &__username {
+            display: flex;
+            a {
+              font-weight: bold;
+              position: relative;
+              color: #333;
+              text-decoration: none;
+              justify-content: flex-start;
+            }
+            .seller_display {
+              background-color: #eb5a46;
+              border-radius: 5px;
+              padding: 3px;
+              justify-content: flex-start;
+              margin-left: 10px;
+              font-size: 14px;
+              color: $white;
+            }
+          }
+          &__commentbox {
+            position: relative;
+            padding: 16px;
+            background: #eef0f4;
+            border-radius: 15px;
+            line-height: 1.5;
+            word-break: break-all;
+            margin-top: 10px;
+            .comment_create_at {
+              float: right;
+              font-size: 12px;
+              margin-top: 20px;
+            }
+          }
+          &__commentbox:after {
+            position: absolute;
+            content: '';
+            bottom: 100%;
+            left: 20px;
+            border: 10px solid transparent;
+            border-bottom: 10px solid #eef0f4;
+            width: 0;
+            height: 0;
+          }
+        }
+      }
+
+      #new_comment{
         text-align: center;
       }
       .notice {
         margin: 10px auto;
         font-size: 14px;
       }
-      .commentBtn {
+      .form__submit {
         background-color: $thema_color_blue;
         line-height: 48px;
         border: 1px solid $thema_color_blue;
@@ -164,6 +232,26 @@
         border-radius: 100px;
         margin: 10px auto;
         display: block;
+      }
+    }
+    .announceBox {
+      background-color: red;
+      width: 95%;
+      height: 50px;
+      margin: 15px auto;
+      line-height: 50px;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      &__comment {
+        font-size: 18px;
+        color: #fff;
+        text-decoration: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
       }
     }
     .links {
